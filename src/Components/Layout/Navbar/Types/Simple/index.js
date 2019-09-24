@@ -5,11 +5,13 @@ import Logo from './../../../../../Assets/Images/logo.png';
 export default function NavbarUnauthenticated() {
     return (
         <>
-          <nav className="navbar navbar-expand-lg navbarSimple">
+          <nav className="navbar-main navbar-simple">
             <div className="container">
-              <Link className="navbar-brand" to={`/`} >
-                <img src={Logo} alt="Logo Social Me" />
-              </Link>
+              <div className="row">
+                <Link className="brandLink"  to="/">
+                  <img className="brand" src={Logo} alt="Logo Social Me" />
+                </Link>
+              </div>
             </div>
           </nav>
         </>

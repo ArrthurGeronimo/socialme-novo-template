@@ -16,16 +16,51 @@
 }
 .navbar-main li {
     display: inline-block;
-    width: 100px;
+    width: auto;
     margin: 0px 10px;
     text-align: center;
-    color: var(--darkText);
+    color: var(--white);
     cursor: pointer;
+    opacity: 0.7;
+    border-bottom: 2px solid transparent;
+    -webkit-transition: all 0.5s; /* Safari prior 6.1 */
+    transition: all 0.5s;
+}
+.navbar-main li:hover {
+    border-bottom: 2px solid var(--white);
+    color: var(--white);
+    opacity: 1;
 }
 .navbar-main .right-buttons {
     display: flex;
     align-items: center;
 }
+.navbar-main:first-child .btn{
+    margin-right: 10px;
+}
 /* NAVBAR UNAUTHENTICATED */
 
 /* NAVBAR SIMPLE */
+.navbar-simple{
+    background-color: var(--primary);
+}
+.navbar-simple .brand{
+    margin: 0px auto;
+    opacity: 1;
+}
+.navbar-simple .brandLink{
+    margin: 0px auto;
+    animation-name: navbarSimpleLogoEffect;
+    animation-duration: 1s;
+    opacity: 1;
+}
+@keyframes navbarSimpleLogoEffect {
+    from{
+        opacity: 0;
+        transform: translateY(-35%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}

@@ -4,6 +4,42 @@
     position: relative;
     height: 100vh;
     background: var(--primary);
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+}
+.headerHome img{
+  width: 100%;
+  height: auto;
+}
+.headerHome h1{
+  color: var(--white);
+  margin: 5px 0px;
+}
+.headerHome .dividerHorizontal{
+  background-color: var(--white);
+  width: 40px;
+  height: 5px;
+  z-index: 99;
+  margin: 5px 0px;
+}
+.headerHome p{
+  color: var(--white);
+  margin: 15px 0px;
+}
+.headerHome .btn-outline{
+  padding: 10px 80px;
+  font-size: 15pt;
+}
+.headerHome .btn-outline:nth-child(1){
+  float: left;
+  margin-left: 15px;
+}
+.headerHome .btn-outline:nth-child(2){
+  float: right;
+  margin-right: 15px;
+  background-color: var(--white);
+  color: var(--dark);
 }
 .headerHome .boxMouseAnimate{
   width: 50px;

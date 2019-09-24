@@ -5,7 +5,7 @@ import Simple from './Types/Simple';
 
 export default function Navbar(props) {
 
-  if (props.path === '/registro' || props.path === '/entrar'){
+  if (props.path === '/entrar'){
     return (
       <Simple />
     );

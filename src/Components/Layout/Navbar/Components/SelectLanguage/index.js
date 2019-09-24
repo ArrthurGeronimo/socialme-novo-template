@@ -13,9 +13,9 @@ export default function SelectLanguage(props) {
     const handleChange = name => event => {
         switch(name) {
         case 'POR':
-            return setValues({ ...values, flag: FlagBrazil, language: 'POR' });
+            return setValues({ ...values, flag: FlagBrazil, language: 'POR', open: false });
         case 'PPO':
-            return setValues({ ...values, flag: FlagPortugal, language: 'PPO' });
+            return setValues({ ...values, flag: FlagPortugal, language: 'PPO', open: false, });
         default:
             return setValues({ ...values, [name]: event.target.value });
         }
@@ -37,7 +37,7 @@ export default function SelectLanguage(props) {
                     <ul className="box-select-ul">
                         <li className="box-select-li" onClick={handleChange('POR')}>
                             <img src={FlagBrazil} alt="Bandeira do Brasil" />
-                            POT
+                            POR
                         </li>
                         <li className="box-select-li" onClick={handleChange('PPO')}>
                             <img src={FlagPortugal} alt="Bandeira do Brasil" />
