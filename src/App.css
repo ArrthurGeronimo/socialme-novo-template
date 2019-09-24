@@ -1,0 +1,127 @@
+/* 
+
+1 - GENERAL
+1.1 - COLORS
+1.3 - RESET
+1.3 - HTML5 CLASSES
+1.4 - GERENAL CLASSES
+
+*/
+
+/* 1 - GENERAL */
+/* 1.1 - COLORS */
+:root{
+    --blue: #007bff;
+    --indigo: #6610f2;
+    --purple: #6f42c1;
+    --pink: #e83e8c;
+    --red: #dc3545;
+    --redDark: #9b0000;
+    --redLight: #ff5131;
+    --orange: #fd7e14;
+    --yellow: #ffc107;
+    --green: #28a745;
+    --teal: #20c997;
+    --cyan: #17a2b8;
+    --white: #fff;
+    --gray: #868e96;
+    --gray-dark: #343a40;
+    --primary: #d50000;
+    --secondary: #868e96;
+    --success: #28a745;
+    --info: #17a2b8;
+    --warning: #ffc107;
+    --danger: #dc3545;
+    --light: #f8f9fa;
+    --dark: #343a40;
+    --darkText: #60666d;;
+    --greyText: hs1(0, 0%, 29%);
+    --lightGreyText: hs1(0, 0%, 45%);
+    --backgroundColor: #fbfbfb;
+}
+/* 1.2 - RESET */
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+/* 1.3 - HTML5 CLASSES */
+body {
+    margin: 0;
+    font-family: 'Open Sans', 'Helvetica Neue', 'Segoe UI', 'Calibri', 'Arial', sans-serif;
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #9aa0ac;;
+    text-align: left;
+    background-color: var(--backgroundColor);
+}
+/* 1.4 - GENERAL CLASSES */
+.display-block{
+    display: block;
+}
+.display-inline-block{
+    display: inline-block;
+}
+.display-none{
+    display: none;
+}
+/* 1.4.1 - SELECT */
+.select-transparent{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+.select-transparent:focus{
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+/* 1.4.2 - DROPDOWN */
+.dropdown-item {
+    font-size: 1rem;
+    font-weight: 400;
+    display: inline-block;
+    position: relative;
+}
+.dropdown-item i {
+    padding: 0px;
+    margin: 0px;
+}
+.dropdown-item ul {
+    display: none;
+}
+.dropdown-item:hover {
+    cursor: pointer;
+}
+.dropdown-item:hover ul {
+    display: block;
+    width: 150px;
+    left: -10px;
+    position: absolute;
+    background-color: var(--white);
+    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+}
+.dropdown-item:hover ul li {
+    display: block;
+    width: auto;
+    margin: 5px 0px;
+    text-align: justify;
+    font-weight: 500;
+    padding: 5px;
+}
+.dropdown-item:hover ul li span {
+    float: right;
+    color: #f9f9f9;
+    background-color: #F03861;
+    padding: 2px 5px;
+    text-align: center;
+    font-size: .8rem;
+    border-radius: 3px;
+}
+.dropdown-item:hover ul li:hover {
+    background-color: var(--backgroundColor);
+}
+.dropdown-item:hover ul li:hover span {
+    background-color: #ee204e;
+}

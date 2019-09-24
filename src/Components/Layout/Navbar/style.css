@@ -1,0 +1,31 @@
+/* NAVBAR */
+.navbar-main {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 99;
+}
+.navbar-main .brand {
+    height: 30px;
+    width: auto;
+}
+.navbar-main ul {
+    list-style: none;
+}
+.navbar-main li {
+    display: inline-block;
+    width: 100px;
+    margin: 0px 10px;
+    text-align: center;
+    color: var(--darkText);
+    cursor: pointer;
+}
+.navbar-main .right-buttons {
+    display: flex;
+    align-items: center;
+}
+/* NAVBAR UNAUTHENTICATED */
+
+/* NAVBAR SIMPLE */
