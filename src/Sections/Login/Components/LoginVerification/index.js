@@ -16,6 +16,10 @@ const handleChange = name => event => {
   }
 };
 
+const mandandoMensagemParaPai = () => {
+  props.avisaPaiQueCadastrouPlanoComSucesso(values.login);
+}
+
   return (
     <div className="loginVerification">
         <h3>Entre com o seu <span>CPF</span> ou seu <span>CNPJ</span></h3>
@@ -39,7 +43,7 @@ const handleChange = name => event => {
             :
                 <p></p>
             }
-            <button className="btn btnPrimary">Próximo</button>
+            <button className="btn btnPrimary" onClick={() => mandandoMensagemParaPai()}>Próximo</button>
         </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Navbar from './../../Components/Layout/Navbar';
 import './style.css';
 import LoginVerification from './Components/LoginVerification';
@@ -16,11 +16,8 @@ const handleChange = name => event => {
       return setValues({ ...values, [name]: event.target.value });
   }
 };
-VerificaSeCadastrouPlanoComSucesso = (value) => {
+const VerificaSeCadastrouPlanoComSucesso = (value) => {
   console.log('RECEBEU DADOS DO FILHO -> '+value);
-}
-const renderInputPassword = () => {
-  
 }
 
   return (
@@ -34,7 +31,7 @@ const renderInputPassword = () => {
           <div className="cardBody ">
             <LoginVerification 
               cpfInvalido={values.cpfInvalido}
-              avisaPaiQueCadastrouPlanoComSucesso={this.VerificaSeCadastrouPlanoComSucesso.bind(this)}
+              avisaPaiQueCadastrouPlanoComSucesso={VerificaSeCadastrouPlanoComSucesso.bind(this)}
             />
           </div>
         </div>

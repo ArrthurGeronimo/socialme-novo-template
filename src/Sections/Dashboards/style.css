@@ -1,0 +1,84 @@
+.dashboardGeral{
+    display: flex;
+}
+.dashboardGeral .containerSidebar{
+    box-sizing: border-box;
+    position: relative;
+    height: 100vh;
+    -webkit-transition: all 0.5s; /* Safari prior 6.1 */
+    transition: all 0.5s;
+}
+.dashboardGeral .containerSidebarOpen{
+    width: 300px;
+}
+.dashboardGeral .containerSidebarClose{
+    width: 50px;
+}
+.dashboardGeral .containerContent{
+    background-color: var(--white);
+    width: 100%;
+    min-height: 100vh;
+}
+/* ESPECIFICO */
+/* GERAL */
+.sidebarDashboard{
+    background-color: var(--primary);
+    width: 100%;
+    height: -webkit-fill-available;
+}
+/* CONTAINER LOGO */
+.sidebarDashboard .sidebarContainerBrand{
+    background-color: var(--primary);
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+.sidebarDashboard .sidebarContainerBrand img{
+    height: auto;
+    margin: 0px auto;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+.sidebarDashboard .sidebarContainerBrand .logoSidebarOpen{
+    width: 70px;
+}
+.sidebarDashboard .sidebarContainerBrand .logoSidebarClose{
+    width: 35px;
+}
+/* MENU DO SIDEBAR */
+.sidebarDashboard .sidebarMenu{
+    display: block;
+}
+.sidebarDashboard .sidebarMenu .sidebarItemMenu{
+    height: 50px;
+    background-color: var(--primary);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    padding-left: 17px;
+    cursor: pointer;
+    border-left: 3px solid var(--primary);
+    opacity: 0.8;
+}
+.sidebarDashboard .sidebarMenu .sidebarItemActive{
+    background-color: var(--white);
+    color: var(--primary);
+    border-left: 3px solid var(--primary);
+    opacity: 1;
+}
+.sidebarDashboard .sidebarMenu .sidebarItemMenu:hover{
+ 
+    opacity: 1;
+}
+.sidebarDashboard .sidebarMenu .sidebarItemMenu i{
+    margin-right: 20px;
+}
+.sidebarDashboard .sidebarMenu .sidebarItemMenu p{
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    opacity: 1;
+}
+.sidebarDashboard .sidebarMenu .sidebarItemMenu .tituloSome{
+    opacity: 0;
+    font-size: 1pt;
+}
