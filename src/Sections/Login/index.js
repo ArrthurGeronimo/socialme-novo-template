@@ -7,6 +7,7 @@ export default function Login(props) {
   const [values, setValues] = useState({
     login:'',
     tipoDeLogin: '',
+    cpfInvalido: false
   });
 //HANDLE CHANGE
 const handleChange = name => event => {
@@ -15,6 +16,12 @@ const handleChange = name => event => {
       return setValues({ ...values, [name]: event.target.value });
   }
 };
+VerificaSeCadastrouPlanoComSucesso = (value) => {
+  console.log('RECEBEU DADOS DO FILHO -> '+value);
+}
+const renderInputPassword = () => {
+  
+}
 
   return (
     <>
@@ -24,8 +31,11 @@ const handleChange = name => event => {
           <div className="progressTopCard">
             <div className="progress"></div>
           </div>
-          <div className="cardBody">
-            <LoginVerification />
+          <div className="cardBody ">
+            <LoginVerification 
+              cpfInvalido={values.cpfInvalido}
+              avisaPaiQueCadastrouPlanoComSucesso={this.VerificaSeCadastrouPlanoComSucesso.bind(this)}
+            />
           </div>
         </div>
       </div>

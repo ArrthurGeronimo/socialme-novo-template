@@ -18,6 +18,7 @@
     animation-duration: 1s;
     text-align: center;
     padding: 20px;
+    overflow: hidden;
 }
 @keyframes pageLoginFadeCard {
     from{
@@ -55,9 +56,35 @@
         width: 100%;
     }
 }
-.pageLogin .cardBody{
-   
+.pageLogin .cardBody .moveIn{
+    animation-name: LogiVerificationMoveIn;
+    animation-duration: 1s;
 }
+.pageLogin .cardBody .moveOut{
+    animation-name: LogiVerificationMoveOut;
+    animation-duration: 1s;
+}
+@keyframes LogiVerificationMoveIn {
+    from{
+        opacity: 0;
+        transform: translateX(35%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+@keyframes LogiVerificationMoveOut {
+    from{
+        opacity: 0;
+        transform: translateX(-35%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
 
 .icone-rodando{
     -webkit-animation: pageLoginFeedbackRotate 2s infinite;

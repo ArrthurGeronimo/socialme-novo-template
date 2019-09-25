@@ -5,7 +5,8 @@ export default function LoginVerification(props) {
   const [values, setValues] = useState({
     login:'',
     tipoDeLogin: '',
-    verificando: false
+    verificando: false,
+    cpfInvalido: props.cpfInvalido
   });
 //HANDLE CHANGE
 const handleChange = name => event => {
@@ -21,11 +22,16 @@ const handleChange = name => event => {
         <div className="form-group">
             <input 
             type="text" 
-            className="form-control" 
+            className={"form-control " + (values.cpfInvalido ? 'is-invalid' : '')} 
             placeholder="Digite seu CPF ou CNPJ" 
             value={values.login}
             onChange={handleChange('login')}
             />
+            {values.cpfInvalido ? 
+              <div className="invalid-feedback">Invalid feedback</div>
+            :
+              <div></div>
+            }
         </div>
         <div className="rowCard">
             {values.verificando ? 
