@@ -7,9 +7,6 @@ export default function Home(props) {
     <>
       <Navbar />
       <HeaderHome />
-      <div className="content-generic">
-        <h1>Home</h1>
-      </div>
     </>
   );
 }

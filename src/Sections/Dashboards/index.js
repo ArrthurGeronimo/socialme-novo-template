@@ -4,7 +4,6 @@ import BeneficiaryDashboard from './BeneficiaryDashboard/index';
 import './style.css';
 
 export default function Dashboards(props) {
-  console.log(props)
   return (
     <>
       <Route exact path={props.match.url}>

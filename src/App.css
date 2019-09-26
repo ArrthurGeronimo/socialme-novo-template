@@ -26,7 +26,7 @@
     --white: #fff;
     --gray: #8e8e8e;;
     --gray-dark: #343a40;
-    /* --primary: #d50000; */
+    /* #d50000 #C00000 #9b0000 #b70202*/
     --primary: #9b0000;
     --secondary: #868e96;
     --success: #28a745;
@@ -114,6 +114,20 @@ input.is-invalid {
     color: #cd201f;
     text-align: justify;
 }
+/* CONTENT GENERIC */
+.content-generic h1{
+    margin: 0;
+    padding: 0;
+    font-family: arial;
+    font-size: 5em;
+    text-align: center;
+    text-transform: uppercase;
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    color: #555;
+    transform: translateX(-50%) translateY(-50%);
+  }  
 /* 1.4.1 - SELECT */
 .select-transparent{
     background-color: transparent;

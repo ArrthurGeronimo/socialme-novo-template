@@ -14,10 +14,20 @@
 .dashboardGeral .containerSidebarClose{
     width: 50px;
 }
+/* CONTENT */
 .dashboardGeral .containerContent{
     background-color: var(--white);
     width: 100%;
     min-height: 100vh;
+}
+/* ONLY CONTENT */
+.dashboardGeral .containerOnlyContent{
+    background-color: var(--white);
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    padding: 30px;
+    height: calc(100vh - 50px);
 }
 /* ESPECIFICO */
 /* GERAL */

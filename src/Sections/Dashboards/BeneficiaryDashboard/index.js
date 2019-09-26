@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import NavbarDashboard from './../../../Components/Layout/NavbarDashboard';
 import SidebarDashboardBeneficiary from './../../../Components/Layout/SidebarDashboardBeneficiary';
+import PageMinhaConta from './Pages/MinhaConta';
+import PageMeuCadastro from './Pages/MeuCadastro';
+import PageDuvidas from './Pages/Duvidas';
 
 export default function BeneficiaryDashboard(props) {
     const [values, setValues] = useState({
         sidebarOpen: true,
-        pageAtiva: 'Minha Conta',
-      });
+        pageAtiva: 'Meu Cadastro',
+    });
     const navbarFilhoAvisaSeBotaoSidebarFoiApertado = (value) => {
         if(values.sidebarOpen){
             setValues({ ...values, sidebarOpen: false });
@@ -18,7 +21,18 @@ export default function BeneficiaryDashboard(props) {
         console.log('PAGINA CLICADA -> ' + value);
         setValues({ ...values, pageAtiva: value });
     }
-    console.log(props);
+    const renderPageActive = () => {
+        switch (values.pageAtiva) {
+            case 'Minha Conta':
+              return <PageMinhaConta />;
+            case 'Meu Cadastro':
+                return <PageMeuCadastro />;
+            case 'Dúvidas':
+              return <PageDuvidas />;
+            default:
+            return <PageMinhaConta />
+          }
+    }
     return (
         <>
             <div className="dashboardGeral">
@@ -36,7 +50,9 @@ export default function BeneficiaryDashboard(props) {
                         avisaPaiSeBotaoSidebarFoiApertado={navbarFilhoAvisaSeBotaoSidebarFoiApertado.bind(this)} 
                         sidebarOpen={values.sidebarOpen}
                     />
-                    <p>TESTE</p>
+                    <div className="containerOnlyContent">
+                        {renderPageActive()}
+                    </div>
                 </div>
             </div>
         </>
