@@ -21,7 +21,7 @@ export default function DashboardBeneficiaryMeuCadastro() {
     quantidadeDeItensNasTabs : beneficiaryMeuCadastroItensDoMenu.length,
     tamanhoSlider: 0,
     translateSlider: 0,
-    activeTab: 'dados'
+    activeTab: 'Relações'
   });
 
   useEffect(() => {
@@ -53,33 +53,31 @@ export default function DashboardBeneficiaryMeuCadastro() {
 
   return (
     <>
-      <div className="container">
-        <div className="dashboardBeneficiaryMeuCadastro">
-          <div className="beneficiaryMeuCadastroTabs">
-              <ul className="beneficiaryMeuCadastroTabs-ul">
-                {beneficiaryMeuCadastroItensDoMenu.map(item => 
-                  <li
-                    key={item.slug}
-                    className={"beneficiaryMeuCadastroTabs-li"}
-                    onClick={() => toogleActiveTab(item.titulo)}
-                  >
-                    <label>
-                    <i className={item.icone}></i>
-                    <span>{item.titulo}</span>
-                    </label>
-                  </li>
-                )}
-              </ul>
-              <div className="slider" 
-                style={{width: `${values.tamanhoSlider}%`, transform: `translateX(${values.translateSlider}%)`}}
-              >
-                <div className="indicator"></div>
-              </div>
-          </div>
-
-          {renderContentTab()}
-
+      <div className="dashboardBeneficiaryMeuCadastro">
+        <div className="beneficiaryMeuCadastroTabs">
+            <ul className="beneficiaryMeuCadastroTabs-ul">
+              {beneficiaryMeuCadastroItensDoMenu.map(item => 
+                <li
+                  key={item.slug}
+                  className={"beneficiaryMeuCadastroTabs-li"}
+                  onClick={() => toogleActiveTab(item.titulo)}
+                >
+                  <label>
+                  <i className={item.icone}></i>
+                  <span>{item.titulo}</span>
+                  </label>
+                </li>
+              )}
+            </ul>
+            <div className="slider" 
+              style={{width: `${values.tamanhoSlider}%`, transform: `translateX(${values.translateSlider}%)`}}
+            >
+              <div className="indicator"></div>
+            </div>
         </div>
+
+        {renderContentTab()}
+
       </div>
     </>
   );

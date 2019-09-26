@@ -1,0 +1,28 @@
+.dashboardBeneficiaryMeuCadastroRelacionamento{
+    background-color: red;
+    width: 100%;
+    margin-top: 50px;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-ul{
+    background-color: purple;
+    list-style: none;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li{
+    background-color: green;
+    display: flex;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-imgContainer{
+    background-color: brown;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-imgContainer img{
+    width: 75px;
+    margin: 0px auto;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-addText{
+    background-color: blue;
+    display: flex;
+    align-items: center;
+}
