@@ -21,13 +21,12 @@ export default function DashboardBeneficiaryMeuCadastro() {
     quantidadeDeItensNasTabs : beneficiaryMeuCadastroItensDoMenu.length,
     tamanhoSlider: 0,
     translateSlider: 0,
-    activeTab: 'Relações'
+    activeTab: 'Dados'
   });
 
   useEffect(() => {
     let valor = 100/values.quantidadeDeItensNasTabs;
     setValues({ ...values, tamanhoSlider: valor });
-    console.log('Arrumou o Tamanho');
   }, []);
 
   const toogleActiveTab = (tabClicada) => {

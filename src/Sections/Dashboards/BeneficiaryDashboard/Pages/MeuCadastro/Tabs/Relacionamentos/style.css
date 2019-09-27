@@ -9,6 +9,7 @@
     display: flex;
     padding: 10px 10px 0px 0px;
     border-bottom: 1px solid var(--borderColor);
+    align-items: center;
 }
 .dashboardBeneficiaryMeuCadastroRelacionamento-li:nth-child(1){
     cursor: pointer;
@@ -34,7 +35,6 @@
 }
 .dashboardBeneficiaryMeuCadastroRelacionamento-li-containerInfo p{
     font-size: 14pt;
-    margin-top: 10px;
     color: var(--primary);
 }
 .dashboardBeneficiaryMeuCadastroRelacionamento-li-containerInfo span{
@@ -65,9 +65,24 @@
     align-items: center;
     border-bottom: 1px solid var(--borderColor);
 }
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-addRelacionamento .btn-AddRelacionamento{
+  margin-right: 10px;
+}
 .dashboardBeneficiaryMeuCadastroRelacionamento-li-addRelacionamento .form-group{
     margin: 0px 10px 0px 0px;
 }
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-edicao{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-edicao .form-group{
+  margin: 0px 5px;
+}
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-edicao button{
+  margin: 0px 5px;
+}
+
 
 
 .drawer-out {
