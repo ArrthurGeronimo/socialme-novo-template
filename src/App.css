@@ -220,6 +220,16 @@ a:hover{
 .btnPrimary:hover{
     opacity: 1;
 }
+.btn-primary{
+    background-color: var(--primary);
+    border-style: solid;
+    border-color: var(--primary);
+    opacity: 0.8;
+    color: var(--white);
+}
+.btn-primary:hover{
+    opacity: 1;
+}
 .btn-outline{
     background: transparent;
     border-color: var(--white);
@@ -232,4 +242,16 @@ a:hover{
     border-color: var(--white);
     color: var(--primary);
     font-weight: 500;
+}
+.btn-transparent{
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+}
+.btn-transparent-primary{
+    color: var(--primary);
+    opacity: 0.8;
+}
+.btn-transparent-primary:hover{
+    opacity: 1;
 }
