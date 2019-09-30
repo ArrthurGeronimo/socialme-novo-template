@@ -5,12 +5,12 @@ import TabRelacionamentos from './Tabs/Relacionamentos';
 
 const beneficiaryMeuCadastroItensDoMenu = [
   {
-    "icone" : "far fa-user",
+    "icone" : "fas fa-user-edit",
     "titulo" : "Dados",
     "slug" : "dados"
   },
   {
-    "icone" : "far fa-address-card",
+    "icone" : "fas fa-user-friends",
     "titulo" : "Relações",
     "slug" : "relacoes"
   }

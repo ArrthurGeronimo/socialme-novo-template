@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
 import './style.css';
 import api from './../../../../../../../Services/api';
+import CircularProgress from './Components/CircularProgress';
 //import TabCamposPessoais from './Components/CamposDadosPessoais';
 //import TabCamposEndereco from './Components/CamposDadosEndereco';
 
 //TABS
 const beneficiaryMeuCadastroDados = [
   {
-    "icone" : "far fa-user",
+    "icone" : "fas fa-user-lock",
     "titulo" : "Pessoais",
     "slug" : "pessoais"
   },
   {
-    "icone" : "far fa-address-card",
+    "icone" : "fas fa-map-marker-alt",
     "titulo" : "Endereço",
     "slug" : "endereco"
   }
@@ -24,7 +25,7 @@ export default function DashboardBeneficiaryMeuCadastroDados() {
     quantidadeDeItensNasTabs : beneficiaryMeuCadastroDados.length,
     tamanhoSlider: 0,
     translateSlider: 0,
-    activeTab: 'dados',
+    activeTab: 'Pessoais',
     //Dados
     dadosDaPessoa: [],
     nome: '',
@@ -64,8 +65,9 @@ export default function DashboardBeneficiaryMeuCadastroDados() {
     //Outros
     beneficiaria: false,
     doadora: false,
-    fornecedora: false
-
+    fornecedora: false,
+    //FUNÇÕES
+    popoverDoCampoSexoOutro: false, 
   });
 //HANDLE CHANGE
 const handleChange = name => event => {
@@ -150,7 +152,13 @@ const handleChange = name => event => {
           return <TabCamposEndereco />;
     }
   }
-
+//POPOVER SEXO OUTRO
+  const ativaPopoverSexoOutro = () => {
+    setValues({ ...values, popoverDoCampoSexoOutro: true, sexo: 'Outro' });
+  }
+  const desativaPopoverSexoOutro = () => {
+    setValues({ ...values, popoverDoCampoSexoOutro: false });
+  }
 //FORMS DOS CAMPOS PESSOAIS
   const TabCamposPessoais = () => {
     return(
@@ -169,19 +177,49 @@ const handleChange = name => event => {
               />
             </div>
           </div>
-          {/* Sexo */}
+          {/* SEXO */}
           <div className="col-sm-12 col-md-4 col-lg-4">
-            <div className="form-group">
-              <label className="form-label">Sexo</label>
-              <input 
-                type="text" 
-                className="form-control input-text" 
-                placeholder=""
-                value={values.sexo}
-                onChange={handleChange('sexo')}
-              />
+              <div className="form-group">
+                <div className="form-label">Sexo</div>
+                <div className="containerCheckBox">
+                  <label className="custom-control custom-radio custom-control-inline">
+                    <input 
+                      type="checkbox" 
+                      className="custom-control-input"
+                      checked={values.sexo === 'Feminino' ? true : false}
+                      value="Feminino"
+                      onChange={handleChange('sexo')} 
+                    />
+                    <span className="custom-control-label">Feminino</span>
+                  </label>
+                  <label className="custom-control custom-radio custom-control-inline">
+                  <input 
+                      type="checkbox" 
+                      className="custom-control-input"
+                      checked={values.sexo === 'Masculino' ? true : false}
+                      value="Masculino"
+                      onChange={handleChange('sexo')} 
+                    />
+                    <span className="custom-control-label">Masculino</span>
+                  </label>
+                  <label className="custom-control custom-radio custom-control-inline">
+                    <input 
+                      type="checkbox" 
+                      className="custom-control-input"
+                      checked={values.sexo === 'Outro' ? true : false}
+                      value="Outro"
+                      onChange={handleChange('sexo')}
+                      onFocus={() => ativaPopoverSexoOutro()}
+                    />
+                    <div className={"Popover Popover--top js-popover "+(values.popoverDoCampoSexoOutro ? 'is-visible' : '')}>
+                        <p>Com qual identidade de gênero você se identifica?</p>
+                        <button onClick={() => desativaPopoverSexoOutro()}>FECHAR</button>
+                    </div>
+                    <span className="custom-control-label">Outro</span>
+                  </label>
+                </div>
+              </div>
             </div>
-          </div>
           {/* NOME SOCIAL */}
           <div className="col-sm-12 col-md-4 col-lg-4">
             <div className="form-group">
@@ -208,19 +246,23 @@ const handleChange = name => event => {
               />
             </div>
           </div>
-          {/* Estado Civil */}
           <div className="col-sm-12 col-md-4 col-lg-4">
-            <div className="form-group">
-              <label className="form-label">Estado Civil</label>
-              <input 
-                type="text" 
-                className="form-control input-text" 
-                placeholder=""
-                value={values.estadoCivil}
-                onChange={handleChange('estadoCivil')}
-              />
+              <div className="form-group">
+                <label className="form-label">Estado Civil</label>
+                <select 
+                  className="form-control"
+                  value={values.estadoCivil}
+                  onChange={handleChange('estadoCivil')}
+                >
+                  <option value="">Selecione...</option>
+                  <option value="Solteiro(a)">Solteiro(a)</option>
+                  <option value="Casado(a)">Casado(a)</option>
+                  <option value="Viúvo(a)">Viúvo(a)</option>
+                  <option value="Separado(a) Judicialmente">Separado(a) Judicialmente</option>
+                  <option value="Divorciado(a)">Divorciado(a)</option>
+                </select>
+              </div>
             </div>
-          </div>
           {/* CPF */}
           <div className="col-sm-12 col-md-4 col-lg-4">
             <div className="form-group">
@@ -273,19 +315,29 @@ const handleChange = name => event => {
               />
             </div>
           </div>
-          {/* Escolaridade */}
+          {/* ESCOLARIDADE */}
           <div className="col-sm-12 col-md-4 col-lg-4">
-            <div className="form-group">
-              <label className="form-label">Escolaridade</label>
-              <input 
-                type="text" 
-                className="form-control input-text" 
-                placeholder=""
-                value={values.escolaridade}
-                onChange={handleChange('escolaridade')}
-              />
+              <div className="form-group">
+                <label className="form-label">Escolaridade</label>
+                <select 
+                  className="form-control"
+                  value={values.escolaridade}
+                  onChange={handleChange('escolaridade')}
+                >
+                  <option value="">Selecione...</option>
+                  <option value="Analfabeto">Analfabeto</option>
+                  <option value="Ensino fundamental incompleto">Ensino fundamental incompleto</option>
+                  <option value="Ensino fundamental completo">Ensino fundamental completo</option>
+                  <option value="Ensino médio incompleto">Ensino médio incompleto</option>
+                  <option value="Ensino médio completo">Ensino médio completo</option>
+                  <option value="Superior completo">Superior completo</option>
+                  <option value="Pós-graduação">Pós-graduação</option>
+                  <option value="Mestrado">Mestrado</option>
+                  <option value="Doutorado">Doutorado</option>
+                  <option value="Pós-Doutorado">Pós-Doutorado</option>
+                </select>
+              </div>
             </div>
-          </div>
           {/* Profissão */}
           <div className="col-sm-12 col-md-4 col-lg-4">
             <div className="form-group">
@@ -342,7 +394,6 @@ const handleChange = name => event => {
       </>
     )
   }
-
 //FORMS DOS CAMPOS DE ENDEREÇO
   const TabCamposEndereco= () => {
     return(
@@ -507,28 +558,28 @@ const handleChange = name => event => {
     <>
         <div className="dashboardBeneficiaryMeuCadastro">
         <div className="col-sm-12 col-md-12 col-lg-12">
-          <h2>{values.dadosDaPessoa.porcentagemCadastro}%</h2>
+          {values.dadosDaPessoa.porcentagemCadastro > 0 ?
+            <CircularProgress progresso={values.dadosDaPessoa.porcentagemCadastro} />
+          :
+            <CircularProgress progresso={0} />
+          }
+          
         </div>
-          <div className="beneficiaryMeuCadastroTabs">
-              <ul className="beneficiaryMeuCadastroTabs-ul">
+          <div className="beneficiaryMeuCadastroDadosTabs">
+              <ul className="beneficiaryMeuCadastroDadosTabs-ul">
                 {beneficiaryMeuCadastroDados.map(item => 
                   <li
                     key={item.slug}
-                    className={"beneficiaryMeuCadastroTabs-li"}
+                    className={"beneficiaryMeuCadastroDadosTabs-li"}
                     onClick={() => toogleActiveTab(item.titulo)}
                   >
-                    <label>
+                    <label className={""+(values.activeTab === item.titulo ? 'active' : '')}>
                     <i className={item.icone}></i>
                     <span>{item.titulo}</span>
                     </label>
                   </li>
                 )}
               </ul>
-              <div className="slider" 
-                style={{width: `${values.tamanhoSlider}%`, transform: `translateX(${values.translateSlider}%)`}}
-              >
-                <div className="indicator"></div>
-              </div>
           </div>
           {renderContentTab()}
           <div className="row">

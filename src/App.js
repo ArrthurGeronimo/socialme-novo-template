@@ -13,7 +13,7 @@ export default function App() {
       <Route exact path="/" component={Home} />
       <Route path="/sobre" component={About} />
       <Route path="/entrar" component={Entrar} />
-      <Route path="/pai" component={Dashboards} />
+      <Route path="/me" component={Dashboards} />
     </Switch>
   );
 }

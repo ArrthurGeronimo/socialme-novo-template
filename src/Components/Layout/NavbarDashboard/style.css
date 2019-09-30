@@ -4,6 +4,7 @@
     width: 100%;
     display: flex;
     background-color: var(--white);
+    border-bottom: 1px solid rgba(0,0,0,0.12);
 }
 .navbar-dashboard .containerBotaoToggleSidebar{
     background-color: var(--red);
@@ -78,4 +79,32 @@
         opacity: 1;
         transform: translateY(0%);
     }
+}
+.navbar-dashboard .rightItens{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    padding-right: 20px;
+}
+.navbar-dashboard .rightItens i{
+    font-size: 18pt;
+    cursor: pointer;
+    margin: 0px 10px 0px 0px;
+}
+.navbar-dashboard .rightItens .actionsUserProfile{
+    display: contents;
+}
+.navbar-dashboard .rightItens .actionsUserProfile img{
+    width: auto;
+    height: 45px;
+    border-radius: 50px;
+    margin-right: 5px;
+}
+.navbar-dashboard .rightItens .actionsUserProfile p{
+    margin-right: 5px;
+}
+.navbar-dashboard .rightItens .actionsUserProfile i{
+    font-size: 8pt;
+    margin-top: 5px;
 }

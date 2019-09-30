@@ -255,3 +255,18 @@ a:hover{
 .btn-transparent-primary:hover{
     opacity: 1;
 }
+/* POPOVER */
+@import url("./Assets/CSS/popover.css");
+/* CHECK BOX */
+.containerCheckBox{
+    line-height: 29pt;
+}
+.containerCheckBox label{
+    margin-right: 10px;
+}
+.containerCheckBox label:last-child{
+    margin-right: 0px;
+}
+.containerCheckBox label input{
+    margin-right: 3px;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import Logo from './../../../Assets/Images/logo.png';
+import Michael from './../../../Assets/Images/michael.jpg';
 import './style.css';
 
 export default function NavbarDashboard(props) {
@@ -18,6 +19,15 @@ export default function NavbarDashboard(props) {
                   :
                     <i className="fas fa-grip-vertical"></i>
                   }
+                </div>
+              </div>
+              <div className="rightItens">
+                <i className="far fa-envelope"></i>
+                <i className="far fa-bell"></i>
+                <div className="actionsUserProfile">
+                  <img src={Michael} alt="Michael Scott" />
+                  <p>Michael Scott</p>
+                  <i className="fas fa-chevron-down"></i>
                 </div>
               </div>
           </nav>
