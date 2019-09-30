@@ -93,13 +93,17 @@
     margin: 0px 10px 0px 0px;
 }
 .navbar-dashboard .rightItens .actionsUserProfile{
-    display: contents;
+    display: flex;
+    width: 200px;
+    align-items: center;
 }
-.navbar-dashboard .rightItens .actionsUserProfile img{
-    width: auto;
+.navbar-dashboard .rightItens .actionsUserProfile .containerImagemUsuario{
+    width: 45px;
     height: 45px;
     border-radius: 50px;
-    margin-right: 5px;
+    background-position: center;
+    background-size: cover;
+    margin-right: 10px;
 }
 .navbar-dashboard .rightItens .actionsUserProfile p{
     margin-right: 5px;

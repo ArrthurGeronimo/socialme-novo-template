@@ -1,6 +1,7 @@
  .circular-chart {
     display: block;
     max-width: 100px;
+    margin: 10px 0px;
 }
 .circle-bg {
     fill: none;

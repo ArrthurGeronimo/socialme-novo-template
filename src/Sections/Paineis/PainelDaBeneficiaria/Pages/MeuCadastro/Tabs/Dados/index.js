@@ -165,7 +165,7 @@ const handleChange = name => event => {
       <>
         <div className="row">
           {/* NOME */}
-          <div className="col-sm-12 col-md-4 col-lg-4">
+          <div className="col-sm-12 col-md-3 col-lg-3">
             <div className="form-group">
               <label className="form-label">Nome Completo</label>
               <input 
@@ -178,7 +178,7 @@ const handleChange = name => event => {
             </div>
           </div>
           {/* SEXO */}
-          <div className="col-sm-12 col-md-4 col-lg-4">
+          <div className="col-sm-12 col-md-3 col-lg-3">
               <div className="form-group">
                 <div className="form-label">Sexo</div>
                 <div className="containerCheckBox">
@@ -221,7 +221,7 @@ const handleChange = name => event => {
               </div>
             </div>
           {/* NOME SOCIAL */}
-          <div className="col-sm-12 col-md-4 col-lg-4">
+          <div className="col-sm-12 col-md-3 col-lg-3">
             <div className="form-group">
               <label className="form-label">Nome Social</label>
               <input 
@@ -234,7 +234,7 @@ const handleChange = name => event => {
             </div>
           </div>
           {/* GENERO SOCIAL */}
-          <div className="col-sm-12 col-md-4 col-lg-4">
+          <div className="col-sm-12 col-md-3 col-lg-3">
             <div className="form-group">
               <label className="form-label">Genero Social</label>
               <input 
@@ -246,7 +246,7 @@ const handleChange = name => event => {
               />
             </div>
           </div>
-          <div className="col-sm-12 col-md-4 col-lg-4">
+          <div className="col-sm-12 col-md-3 col-lg-3">
               <div className="form-group">
                 <label className="form-label">Estado Civil</label>
                 <select 
@@ -264,7 +264,7 @@ const handleChange = name => event => {
               </div>
             </div>
           {/* CPF */}
-          <div className="col-sm-12 col-md-4 col-lg-4">
+          <div className="col-sm-12 col-md-3 col-lg-3">
             <div className="form-group">
               <label className="form-label">CPF</label>
               <input 
@@ -277,7 +277,7 @@ const handleChange = name => event => {
             </div>
           </div>
           {/* CNS */}
-          <div className="col-sm-12 col-md-4 col-lg-4">
+          <div className="col-sm-12 col-md-3 col-lg-3">
             <div className="form-group">
               <label className="form-label">CNS</label>
               <input 
@@ -290,7 +290,7 @@ const handleChange = name => event => {
             </div>
           </div>
           {/* PIS */}
-          <div className="col-sm-12 col-md-4 col-lg-4">
+          <div className="col-sm-12 col-md-3 col-lg-3">
             <div className="form-group">
               <label className="form-label">PIS</label>
               <input 
@@ -303,7 +303,7 @@ const handleChange = name => event => {
             </div>
           </div>
           {/* RG */}
-          <div className="col-sm-12 col-md-4 col-lg-4">
+          <div className="col-sm-12 col-md-3 col-lg-3">
             <div className="form-group">
               <label className="form-label">RG</label>
               <input 
@@ -316,7 +316,7 @@ const handleChange = name => event => {
             </div>
           </div>
           {/* ESCOLARIDADE */}
-          <div className="col-sm-12 col-md-4 col-lg-4">
+          <div className="col-sm-12 col-md-3 col-lg-3">
               <div className="form-group">
                 <label className="form-label">Escolaridade</label>
                 <select 
@@ -339,7 +339,7 @@ const handleChange = name => event => {
               </div>
             </div>
           {/* Profissão */}
-          <div className="col-sm-12 col-md-4 col-lg-4">
+          <div className="col-sm-12 col-md-3 col-lg-3">
             <div className="form-group">
               <label className="form-label">Profissão</label>
               <input 
@@ -352,7 +352,7 @@ const handleChange = name => event => {
             </div>
           </div>
           {/* Telefone Fixo */}
-          <div className="col-sm-12 col-md-4 col-lg-4">
+          <div className="col-sm-12 col-md-3 col-lg-3">
             <div className="form-group">
               <label className="form-label">Telefone Fixo</label>
               <input 
@@ -365,7 +365,7 @@ const handleChange = name => event => {
             </div>
           </div>
           {/* Telefone Celular */}
-          <div className="col-sm-12 col-md-4 col-lg-4">
+          <div className="col-sm-12 col-md-3 col-lg-3">
             <div className="form-group">
               <label className="form-label">Telefone Celular</label>
               <input 
@@ -378,7 +378,7 @@ const handleChange = name => event => {
             </div>
           </div>
           {/* Email */}
-          <div className="col-sm-12 col-md-4 col-lg-4">
+          <div className="col-sm-12 col-md-3 col-lg-3">
             <div className="form-group">
               <label className="form-label">Email</label>
               <input 
@@ -399,7 +399,7 @@ const handleChange = name => event => {
     return(
       <div className="row">
         {/* Logradouro */}
-        <div className="col-sm-12 col-md-4 col-lg-4">
+        <div className="col-sm-12 col-md-3 col-lg-3">
           <div className="form-group">
             <label className="form-label">Logradouro</label>
             <input 
@@ -412,7 +412,7 @@ const handleChange = name => event => {
           </div>
         </div>
         {/* Número */}
-        <div className="col-sm-12 col-md-4 col-lg-4">
+        <div className="col-sm-12 col-md-3 col-lg-3">
           <div className="form-group">
             <label className="form-label">Número</label>
             <input 
@@ -425,7 +425,7 @@ const handleChange = name => event => {
           </div>
         </div>
         {/* Bairro */}
-        <div className="col-sm-12 col-md-4 col-lg-4">
+        <div className="col-sm-12 col-md-3 col-lg-3">
           <div className="form-group">
             <label className="form-label">Bairro</label>
             <input 
@@ -438,7 +438,7 @@ const handleChange = name => event => {
           </div>
         </div>
         {/* Cidade */}
-        <div className="col-sm-12 col-md-4 col-lg-4">
+        <div className="col-sm-12 col-md-3 col-lg-3">
           <div className="form-group">
             <label className="form-label">Cidade</label>
             <input 
@@ -451,7 +451,7 @@ const handleChange = name => event => {
           </div>
         </div>
         {/* Estado Provincia */}
-        <div className="col-sm-12 col-md-4 col-lg-4">
+        <div className="col-sm-12 col-md-3 col-lg-3">
           <div className="form-group">
             <label className="form-label">Estado Provincia</label>
             <input 
@@ -464,7 +464,7 @@ const handleChange = name => event => {
           </div>
         </div>
         {/* País */}
-        <div className="col-sm-12 col-md-4 col-lg-4">
+        <div className="col-sm-12 col-md-3 col-lg-3">
           <div className="form-group">
             <label className="form-label">País</label>
             <input 
@@ -477,7 +477,7 @@ const handleChange = name => event => {
           </div>
         </div>
         {/* CEP */}
-        <div className="col-sm-12 col-md-4 col-lg-4">
+        <div className="col-sm-12 col-md-3 col-lg-3">
           <div className="form-group">
             <label className="form-label">CEP</label>
             <input 
@@ -490,7 +490,7 @@ const handleChange = name => event => {
           </div>
         </div>
         {/* Latitude */}
-        <div className="col-sm-12 col-md-4 col-lg-4">
+        <div className="col-sm-12 col-md-3 col-lg-3">
           <div className="form-group">
             <label className="form-label">Latitude</label>
             <input 
@@ -503,7 +503,7 @@ const handleChange = name => event => {
           </div>
         </div>
         {/* Longitude */}
-        <div className="col-sm-12 col-md-4 col-lg-4">
+        <div className="col-sm-12 col-md-3 col-lg-3">
           <div className="form-group">
             <label className="form-label">Longitude</label>
             <input 
@@ -516,7 +516,7 @@ const handleChange = name => event => {
           </div>
         </div>
         {/* Inscrição Imobiliária */}
-        <div className="col-sm-12 col-md-4 col-lg-4">
+        <div className="col-sm-12 col-md-3 col-lg-3">
           <div className="form-group">
             <label className="form-label">Inscrição Imobiliária</label>
             <input 
@@ -529,7 +529,7 @@ const handleChange = name => event => {
           </div>
         </div>
         {/* Complemento */}
-        <div className="col-sm-12 col-md-4 col-lg-4">
+        <div className="col-sm-12 col-md-3 col-lg-3">
           <div className="form-group">
             <label className="form-label">Complemento</label>
             <input 

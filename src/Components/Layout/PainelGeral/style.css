@@ -59,6 +59,10 @@
 .sidebarDashboard .sidebarMenu{
     display: block;
 }
+.sidebarDashboard .sidebarMenu a{
+    text-transform: none;
+    text-decoration: none;
+}
 .sidebarDashboard .sidebarMenu .sidebarItemMenu{
     height: 50px;
     background-color: var(--primary);

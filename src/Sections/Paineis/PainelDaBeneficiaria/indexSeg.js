@@ -6,9 +6,11 @@ import PageMeuCadastro from './Pages/MeuCadastro';
 import PageDuvidas from './Pages/Duvidas';
 
 export default function BeneficiaryDashboard(props) {
+    console.log(props)
+
     const [values, setValues] = useState({
         sidebarOpen: true,
-        pageAtiva: 'Meu Cadastro',
+        pageAtiva: '',
     });
     const navbarFilhoAvisaSeBotaoSidebarFoiApertado = (value) => {
         if(values.sidebarOpen){
@@ -18,7 +20,6 @@ export default function BeneficiaryDashboard(props) {
         }
     }
     const navbarFilhoAvisaQualPaginaEstaAtiva = (value) => {
-        console.log('PAGINA CLICADA -> ' + value);
         setValues({ ...values, pageAtiva: value });
     }
     const renderPageActive = () => {
