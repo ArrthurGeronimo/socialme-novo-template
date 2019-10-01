@@ -243,6 +243,24 @@ a:hover{
     color: var(--primary);
     font-weight: 500;
 }
+.btn-outline-primary{
+    background: transparent;
+    border-color: var(--primary);
+    color: var(--primary);
+    border-style: solid;
+    width: 30px;
+    height: 30px;
+    padding: 0px;
+}
+.btn-outline-primary:hover{
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--white);
+    border-style: solid;
+    width: 30px;
+    height: 30px;
+    padding: 0px;
+}
 .btn-transparent{
     background-color: transparent;
     border: none;
