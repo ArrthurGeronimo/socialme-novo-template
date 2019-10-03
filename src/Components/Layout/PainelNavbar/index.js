@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import BuscaIconeAnimado from './../../BuscaIconeAnimado';
 import Logo from './../../../Assets/Images/logo.png';
 import Michael from './../../../Assets/Images/michael.jpg';
 import Dunder from './../../../Assets/Images/dunder.jpg';
@@ -43,6 +44,7 @@ export default function NavbarDashboard(props) {
                 </div>
               </div>
               <div className="rightItens">
+              <BuscaIconeAnimado />
                 <Link to={"/me/beneficiaria"}>
                   <i className="far fa-smile"></i>
                 </Link>
@@ -51,6 +53,7 @@ export default function NavbarDashboard(props) {
                 </Link>
                 <i className="far fa-envelope"></i>
                 <i className="far fa-bell"></i>
+                
                 
                 {renderUserInformation()}
                 

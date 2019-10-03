@@ -16,7 +16,7 @@
     --purple: #6f42c1;
     --pink: #e83e8c;
     --red: #dc3545;
-    --redDark: #9b0000;
+    --redDark: #8B0000;
     --redLight: #ff5131;
     --orange: #fd7e14;
     --yellow: #ffc107;
@@ -28,6 +28,7 @@
     --gray-dark: #343a40;
     /* #d50000 #C00000 #9b0000 #b70202*/
     --primary: #9b0000;
+    --primaryDark: #7D0000;
     --secondary: #868e96;
     --success: #28a745;
     --info: #17a2b8;
@@ -210,6 +211,9 @@ a:hover{
     -webkit-transition: all 0.5s; /* Safari prior 6.1 */
     transition: all 0.5s;
 }
+.btn:focus{
+    outline: none !important;
+}
 .btnPrimary{
     background-color: var(--primary);
     border-style: solid;
@@ -273,6 +277,27 @@ a:hover{
 .btn-transparent-primary:hover{
     opacity: 1;
 }
+/* BOTAO 3D */
+.btn-3d {
+    display: inline-block;
+    color: var(--white);
+    font-size: 14pt;
+    border-radius: 4px;
+    -webkit-transition: none; /* Safari prior 6.1 */
+    transition: none;
+    padding: 3px 10px;
+    border: none;
+}
+.btn-3d:active {
+    transform: translate3d(0, 4px, 0);
+}
+.btn-3d.btn-3d-primary {
+    background-color: var(--primary);
+    box-shadow:  0 0 0 0px var(--primaryDark) inset, 0 0 0 0px rgba(255, 255, 255, 0.15) inset, 0 5px 0 0 var(--primaryDark), 0 4px 0 0px rgba(0, 0, 0, 0.4), 0 0px 0px 0px rgba(0, 0, 0, 0.5)
+}
+.btn-3d.btn-3d-primary:active {
+    box-shadow: 0 0 0 1px var(--primaryDark) inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
 /* POPOVER */
 @import url("./Assets/CSS/popover.css");
 /* CHECK BOX */
@@ -288,3 +313,5 @@ a:hover{
 .containerCheckBox label input{
     margin-right: 3px;
 }
+
+/* */

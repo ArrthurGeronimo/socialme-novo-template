@@ -4,10 +4,12 @@
     width: 100%;
     display: flex;
     background-color: var(--white);
-    border-bottom: 1px solid rgba(0,0,0,0.12);
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 8px 5px -5px rgba(0,0,0,0.12)
 }
 .navbar-dashboard .containerBotaoToggleSidebar{
-    background-color: var(--red);
+    background-color: var(--backgroundColor);
     height: 50px;
     width: 80px;
     display: flex;
@@ -37,7 +39,7 @@
     transform: rotate(180deg);
 }
 .navbar-dashboard .iconBotaoToggleSidebar{
-    background-color: var(--red);
+    background-color: var(--backgroundColor);
     height: 50px;
     width: 45px;
     border-top-right-radius: 30px 100px;
@@ -47,7 +49,8 @@
     text-align: center;
 }
 .navbar-dashboard .iconBotaoToggleSidebar i{
-    background-color: var(--red);
+    background-color: var(--backgroundColor);
+    color: var(--primary);
     height: 50px;
     width: 45px;
     border-top-right-radius: 30px 100px;

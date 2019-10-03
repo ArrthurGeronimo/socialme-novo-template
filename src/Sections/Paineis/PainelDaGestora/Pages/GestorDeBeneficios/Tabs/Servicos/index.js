@@ -57,7 +57,7 @@ export default function PainelGestoraServicos() {
             </td>
             <td>
               <p style={{color: 'var(--primary)'}}>{capitalizeFirstLetter(item.nome)}</p>
-              <span style={{fontSize: '8pt'}}>NCM: {item.ncm}</span>
+              <span style={{fontSize: '8pt'}}>SPED: {item.sped}</span>
             </td> 
             <td>R${item.valor}</td>
             <td>tags</td>
@@ -76,13 +76,13 @@ export default function PainelGestoraServicos() {
       <div className="painelGestoraGestorDeBeneficios-containerGeral">
         <div className="painelGestoraGestorDeBeneficios-RowFiltros">
           <div className="itensLeft">
-            <button className="btn btn-outline-primary">
+            <button className="btn btn-3d btn-3d-primary">
               <i className="far fa-save"></i>
             </button>
-            <button className="btn btn-outline-primary">
+            <button className="btn btn-3d btn-3d-primary">
               <i className="fas fa-download"></i>
             </button>
-            <button className="btn btn-outline-primary">
+            <button className="btn btn-3d btn-3d-primary">
               <i className="fas fa-sync-alt"></i>
             </button>
           </div>
@@ -103,7 +103,7 @@ export default function PainelGestoraServicos() {
               value={values.search}
               onChange={handleChange('search')}
             />
-            <button className="btn btn-outline-primary">
+            <button className="btn btn-3d btn-3d-primary">
               <i className="fas fa-search"></i>
             </button>
           </div>

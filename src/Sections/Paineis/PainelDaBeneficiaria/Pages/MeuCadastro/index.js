@@ -21,7 +21,7 @@ export default function DashboardBeneficiaryMeuCadastro() {
     quantidadeDeItensNasTabs : beneficiaryMeuCadastroItensDoMenu.length,
     tamanhoSlider: 0,
     translateSlider: 0,
-    activeTab: 'Dados'
+    activeTab: 'Relações'
   });
 
   useEffect(() => {

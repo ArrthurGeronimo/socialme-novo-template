@@ -89,7 +89,8 @@ useEffect(() => {
     };
     api.post(`novoRelacionamento`,obj)
     .then(res => {
-      console.log(res);
+      console.log('Enviando Obj');
+      console.log(res.data);
       switch (res.data.codigo) {
         case 'CODIGOTUDOOK':
           return(
@@ -164,7 +165,7 @@ useEffect(() => {
 //ATUALIZANDO RELACIONAMENTO
   const atualizarRelacionamento = () => {
     setValues({ ...values, auxPegarDados: false });
-    console.log('ATUALIZANDO');
+    //console.log('ATUALIZANDO');
     const obj = {
       vinculo: values.tipoDoRelacionamentoDaEdicao
     };

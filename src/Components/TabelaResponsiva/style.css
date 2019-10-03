@@ -37,7 +37,8 @@
     cursor: pointer;
   }
   .tabelaResponsiva-body .tdContainerImagem{
-    width: 100px;
+    width: 60px;
+    padding: 5px;
   }
   
   .tabelaResponsiva-body tr i{

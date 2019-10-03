@@ -1,0 +1,43 @@
+id
+nome
+criadoEm
+editaEm
+_idCriadora
+grupo
+frequencia
+    usuario1
+    usuario2
+
+periodos
+    situacao
+    executores
+    local
+    periodo
+        mensal
+            mesDeInicio
+            mesFinal
+
+    situacao
+    executores
+    local
+    periodo
+        anual
+            anoInicio
+            anoFinal
+
+    situacao
+    executores
+    local
+    periodo
+        dias
+            diaInicio
+            diaFinal
+
+    situacao
+    executores
+    local
+    periodo
+        naoRecorrente
+            dia
+                hora
+    
