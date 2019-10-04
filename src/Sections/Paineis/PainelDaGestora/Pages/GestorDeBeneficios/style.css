@@ -16,6 +16,7 @@
   border-right: 1px solid rgba(0,0,0,0.12);
   border-top: 1px solid rgba(0,0,0,0.12);
   border-left: 1px solid rgba(0,0,0,0.12);
+  background-color: var(--white);
 }
 .painelGestoraGestaoDeBeneficios .gestoraGestorDeBeneficiosTabs .gestoraGestorDeBeneficiosTabs-li label {
   cursor: pointer;
@@ -26,13 +27,15 @@
 }
 .painelGestoraGestaoDeBeneficios .gestoraGestorDeBeneficiosTabs .gestoraGestorDeBeneficiosTabs-li .active{
   border-bottom: 1px solid var(--primary);
+  color: var(--black);
 }
 /* */
 .painelGestoraGestorDeBeneficios-RowFiltros{
-  padding: 10px 0px;
+  padding: 10px;
   display: flex;
   align-items: center;
   align-content: center;
+  background-color: var(--white);
 }
 .painelGestoraGestorDeBeneficios-RowFiltros button{
   margin: 0px 5px;

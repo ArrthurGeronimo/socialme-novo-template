@@ -1,0 +1,106 @@
+.cardProgramaIsometric-containerGeral{
+    height: 85px;
+}
+.cardProgramaIsometric{
+    cursor: pointer;
+    color: var(--textGray);
+    font-size: 14pt;
+    border-radius: 4px;
+    padding: 0px;
+    height: 80px;
+}
+.cardProgramaIsometricWhite{
+    background-color: var(--white);
+    box-shadow:  0 0 0 0px var(--secondaryDark) inset, 0 0 0 0px rgba(255, 255, 255, 0.15) inset, 0 5px 0 0 var(--secondaryDark), 0 4px 0 0px rgba(0, 0, 0, 0.4), 0 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+.cardProgramaIsometric-border{
+    width: 100%;
+    height: 5px;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+.backgroundSuccess{
+    background-color: var(--success);
+}
+.backgroundDanger{
+    background-color: var(--danger);
+}
+.backgroundWarning{
+    background-color: var(--warning);
+}
+.cardProgramaIsometric-body{
+    display: flex;
+    padding: 10px;
+}
+.cardProgramaImagem-container{
+    height: -webkit-fill-available;
+    width: 100px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    padding: 5px;
+}
+.cardProgramaImagem-container img{
+    width: 100%;
+    height: inherit;
+}
+.cardProgramaInformacoes-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    -webkit-transition: all 0.5s; /* Safari prior 6.1 */
+    transition: all 0.5s;
+}
+.cardProgramaInformacoes-container h2{
+    font-size:1vw;
+    text-align: center;
+    -webkit-transition: all 0.5s; /* Safari prior 6.1 */
+    transition: all 0.5s;
+}
+.cardProgramaInformacoes-botoesDeAcao{
+    display: none;
+    opacity: 0;
+    -webkit-transition: all 0.5s; /* Safari prior 6.1 */
+    transition: all 0.5s;
+}
+.cardProgramaInformacoes-botoesDeAcao button{
+    margin: 0px 5px 0px 5px;
+}
+.cardProgramaInformacoes-botoesDeAcao button{
+    margin: 0px 0px 0px 5px;
+}
+.cardProgramaInformacoes-botoesDeAcao button:first-child{
+    margin: 0px 0px 0px 0px;
+}
+.cardProgramaInformacoes-botoesDeAcao i{
+    margin: 0px auto;
+}
+/* HOVER */
+.cardProgramaIsometric-containerGeral:hover .cardProgramaIsometric{
+    transform: translateY(-3px);
+    color: var(--black);
+}
+.cardProgramaIsometric-containerGeral:hover .cardProgramaInformacoes-container{
+    display: block;
+}
+.cardProgramaIsometric-containerGeral:hover .cardProgramaInformacoes-container h2{
+    transform: translateY(-5px);
+    text-align: justify;
+}
+.cardProgramaIsometric-containerGeral:hover .cardProgramaInformacoes-botoesDeAcao{
+    opacity: 1;
+    display: block;
+}
+/* FOCUS */
+.cardProgramaIsometric-containerGeral:focus .cardProgramaIsometric{
+    outline: none !important;
+}
+/* ACTIVE */
+.cardProgramaIsometric-containerGeral:active .cardProgramaIsometric{
+    transform: translateY(-3px);
+    transform: translate3d(0, 4px, 0);
+}
+.cardProgramaIsometric:active {
+    box-shadow: 0 0 0 1px var(--white) inset, 0 0 0 0px rgba(255, 255, 255, 0.15) inset, 0 0 0 0px rgba(0, 0, 0, 0.4);
+}

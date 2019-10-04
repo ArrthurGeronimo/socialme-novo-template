@@ -18,13 +18,13 @@
 }
 /* CONTENT */
 .dashboardGeral .containerContent{
-    background-color: var(--white);
+    background-color: var(--backgroundColor);
     width: 100%;
     min-height: 100vh;
 }
 /* ONLY CONTENT */
 .dashboardGeral .containerOnlyContent{
-    background-color: var(--white);
+    background-color: var(--backgroundColor);
     box-sizing: border-box;
     width: 100%;
     position: relative;

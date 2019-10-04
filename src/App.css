@@ -24,20 +24,22 @@
     --teal: #20c997;
     --cyan: #17a2b8;
     --white: #fff;
+    --black: #303030;
     --gray: #8e8e8e;;
     --gray-dark: #343a40;
     /* #d50000 #C00000 #9b0000 #b70202*/
     --primary: #9b0000;
     --primaryDark: #7D0000;
-    --secondary: #868e96;
+    --secondary: #F1F3F4;
+    --secondaryDark: #D6DCDF;
     --success: #28a745;
     --info: #17a2b8;
     --warning: #ffc107;
     --danger: #dc3545;
     --light: #f8f9fa;
     --dark: #343a40;
-    --darkText: #60666d;;
-    --greyText: hs1(0, 0%, 29%);
+    --textDark: #60666d;;
+    --textGray: hs1(0, 0%, 29%);
     --lightGreyText: hs1(0, 0%, 45%);
     --backgroundColor: #f1f3f4;
     --borderColor: #dadce0;

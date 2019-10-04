@@ -44,7 +44,7 @@ export default function NavbarDashboard(props) {
                 </div>
               </div>
               <div className="rightItens">
-              <BuscaIconeAnimado />
+                <BuscaIconeAnimado />
                 <Link to={"/me/beneficiaria"}>
                   <i className="far fa-smile"></i>
                 </Link>

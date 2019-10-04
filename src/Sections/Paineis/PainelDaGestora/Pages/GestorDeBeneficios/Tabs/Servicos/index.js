@@ -108,12 +108,10 @@ export default function PainelGestoraServicos() {
             </button>
           </div>
         </div>
-        <div className="row                                                                                                                                                                                                                                                                                                                                                                                   ">
-          <TabelaResponsiva 
-            head={valoresParaPreencherHeadDaTabela}
-            registros={preencherNaTabela()}
-          />
-        </div>
+        <TabelaResponsiva 
+          head={valoresParaPreencherHeadDaTabela}
+          registros={preencherNaTabela()}
+        />
       </div>
     </>
   );

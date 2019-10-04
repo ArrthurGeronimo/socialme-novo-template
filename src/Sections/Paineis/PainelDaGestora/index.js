@@ -11,7 +11,7 @@ export default function PainelDaBeneficiaria(props) {
   return (
     <>
       <Route exact path={props.match.url}>
-        <Redirect to={`${props.match.url}/gestor-de-beneficios`} />
+        <Redirect to={`${props.match.url}/programas`} />
       </Route>
       <Route
         path={`${props.match.url}/movimentacoes`}
