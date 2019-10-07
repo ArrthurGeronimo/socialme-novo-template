@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './style.css';
+import AbaVisualizarProgramas from './../VisualizarProgramas';
+import AbaAdicionarProgramas from './../AdicionarPrograma';
 
 export default function LinhaDeFiltrosDeProgamas() {
   const [values, setValues] = useState({
@@ -7,12 +9,27 @@ export default function LinhaDeFiltrosDeProgamas() {
     search: 'Procurar...',
     select: '',
     servicos: [],
+    abaAtiva: '',
     consultouAPI: false
   });
-  //HANDLE CHANGE
+//HANDLE CHANGE
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
   };
+//TROCAR DE ABA
+  const trocarDeAba = (abaClicada) => {
+    setValues({ ...values, abaAtiva: abaClicada });
+  }
+//RENDERIZAR ABA
+  const renderizarAbaAtiva = () => {
+    switch (values.abaAtiva) {
+      case 'Visualizar Programas':
+      default:
+        return <AbaVisualizarProgramas/>;
+      case 'Adicionar Programa':
+        return <AbaAdicionarProgramas />;
+    }
+  }
   return (
     <>
       <div className="linhaDeFiltrosDosProgramas-containerGeral">
@@ -21,13 +38,13 @@ export default function LinhaDeFiltrosDeProgamas() {
         </div>
         
         <div className="linhaDeFiltrosDosProgramas-itensNaDireita">
-          <button className="btn btn-3d btn-3d-primary">
+          <button onClick={() => trocarDeAba('Adicionar Programa')} className="btn btn-3d btn-3d-primary">
             <i className="fas fa-plus"></i>
           </button>
-          <button className="btn btn-3d btn-3d-primary">
-            <i className="fas fa-download"></i>
+          <button onClick={() => trocarDeAba('Visualizar Programas')} className="btn btn-3d btn-3d-primary">
+            <i className="far fa-eye"></i>
           </button>
-          <button className="btn btn-3d btn-3d-primary">
+          <button onClick={() => trocarDeAba('Visualizar Programas')}  className="btn btn-3d btn-3d-primary">
             <i className="fas fa-sync-alt"></i>
           </button>
           <select 
@@ -51,6 +68,7 @@ export default function LinhaDeFiltrosDeProgamas() {
           </button>
         </div>
       </div>
+      {renderizarAbaAtiva()}
     </>
   );
 }

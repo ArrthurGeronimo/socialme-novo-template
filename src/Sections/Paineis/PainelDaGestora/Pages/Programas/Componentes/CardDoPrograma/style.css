@@ -104,3 +104,4 @@
 .cardProgramaIsometric:active {
     box-shadow: 0 0 0 1px var(--white) inset, 0 0 0 0px rgba(255, 255, 255, 0.15) inset, 0 0 0 0px rgba(0, 0, 0, 0.4);
 }
+

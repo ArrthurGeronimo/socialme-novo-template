@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './style.css';
 import TabAtividades from './Tabs/Atividades';
+import TabTiposDeAtividades from './Tabs/TiposDeAtividades';
 import TabProdutos from './Tabs/Produtos';
 import TabServicos from './Tabs/Servicos';
 
@@ -9,6 +10,11 @@ const painelDaGestoraModuloGestorDeBeneficiosMenuItens = [
     "icone" : "fas fa-theater-masks",
     "titulo" : "Atividades",
     "slug" : "atividades"
+  },
+  {
+    "icone" : "fas fa-theater-masks",
+    "titulo" : "Tipos de Atividades",
+    "slug" : "tipos-de-atividades"
   },
   {
     "icone" : "fas fa-shopping-basket",
@@ -24,7 +30,7 @@ const painelDaGestoraModuloGestorDeBeneficiosMenuItens = [
 
 export default function PainelGestoraGestorDeBeneficios() {
   const [values, setValues] = useState({
-    activeTab: 'Serviços'
+    activeTab: 'Atividades'
   });
 
   useEffect(() => {
@@ -47,6 +53,8 @@ export default function PainelGestoraGestorDeBeneficios() {
       case 'Atividades':
       default:
         return <TabAtividades />;
+      case 'Tipos de Atividades':
+        return <TabTiposDeAtividades />;
       case 'Produtos':
           return <TabProdutos />;
       case 'Serviços':

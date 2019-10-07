@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import './style.css';
 import PopoverSimples from './../../../../../../../Components/PopoverSimples';
+import BoxVincula from './../BoxVincula';
 
 export default function PainelGestoraProgramasCardDoPrograma(props) {
-
+  const [values, setValues] = useState({
+      boxParaVincularAberto: false
+    });
+  //HANDLE CHANGE
+  const abrirBoxParaVincular = () => {
+    if(values.boxParaVincularAberto){
+      setValues({ ...values, boxParaVincularAberto: false });
+    }else{
+      setValues({ ...values, boxParaVincularAberto: true });
+    }
+  };
   return (
     <>
         <div className="cardProgramaIsometric-containerGeral">
@@ -35,7 +46,7 @@ export default function PainelGestoraProgramasCardDoPrograma(props) {
                     <button className="btn btn-outline btn-outline-primary">
                       <i className="fas fa-pencil-alt"></i>
                     </button>
-                    <button className="btn btn-outline btn-outline-primary">
+                    <button onClick={() => abrirBoxParaVincular()} className="btn btn-outline btn-outline-primary">
                       <i className="far fa-copy"></i>
                     </button>
                     <button className="btn btn-outline btn-outline-primary">
@@ -44,6 +55,7 @@ export default function PainelGestoraProgramasCardDoPrograma(props) {
                   </div>
                 </div>
               </div>
+              <BoxVincula aberto={values.boxParaVincularAberto}/>
             </div>
         </div>
     </>

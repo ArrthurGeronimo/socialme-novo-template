@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import './style.css';
-import AbaAdicionar from './Abas/AdicionarNovaAtividade';
-import AbaVisualizar from './Abas/VisualizarAtividades';
+import AbaAdicionar from './Abas/AdicionarUmNovoTipo';
+import AbaVisualizar from './Abas/VisualizarTodosOsTipos';
 
 export default function PainelGestoraTiposDeAtividades() {
   const [values, setValues] = useState({
-    abaAtiva: 'Adicionar Nova Atividade'
+    abaAtiva: 'Visualizar Todas'
   });
 
   const ativaAlgumaAba = (abaClicada) => {
@@ -14,10 +14,10 @@ export default function PainelGestoraTiposDeAtividades() {
 
   const renderizarAbaAtiva = () => {
     switch (values.abaAtiva) {
-      case 'Visualizar Todas':
+      case 'Visualizar Todos os Tipos de Atividades':
       default:
         return <AbaVisualizar />;
-      case 'Adicionar Nova Atividade':
+      case 'Adicionar Novo Tipo de Atividade':
         return <AbaAdicionar />;
     }
   }
@@ -26,8 +26,8 @@ export default function PainelGestoraTiposDeAtividades() {
     <>
       <div className="painelGestoraGestorDeBeneficiosTiposDeAtividades-containerGeral">
           <div className="col-md-12">
-            <button onClick={() => ativaAlgumaAba('Visualizar Todas')} className="btn btn-3d btn-3d-primary">Visualizar Atividades</button>
-            <button onClick={() => ativaAlgumaAba('Adicionar Nova Atividade')} className="btn btn-3d btn-3d-primary">Adicionar Atividade</button>
+            <button onClick={() => ativaAlgumaAba('Visualizar Todos os Tipos de Atividades')} className="btn btn-3d btn-3d-primary">Visualizar Todos os Tipos de Atividades</button>
+            <button onClick={() => ativaAlgumaAba('Adicionar Novo Tipo de Atividade')} className="btn btn-3d btn-3d-primary">Adicionar Novo Tipo de Atividade</button>
           </div>
           <div className="col-md-12">
             {renderizarAbaAtiva()}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import './style.css';
 import api from './../../../../../../../Services/api';
 import ImageUser from './../../../../../../../Assets/Images/user.png';

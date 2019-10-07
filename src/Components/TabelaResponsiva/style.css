@@ -40,6 +40,10 @@
     width: 60px;
     padding: 5px;
   }
+
+  .tabelaResponsiva-body .tdContainerImagem img{
+    width: inherit;
+  }
   
   .tabelaResponsiva-body tr i{
     color: transparent;
