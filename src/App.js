@@ -1,19 +1,14 @@
 import React from 'react';
-import { Route, Switch } from "react-router-dom";
-import Home from './Sections/Home/index';
-import About from './Sections/About/index';
-import Entrar from './Sections/Login/index';
-import Paineis from './Sections/Paineis/index';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Routes } from './routes'; // where we are going to specify our routes
 import './App.css';
 
-export default function App() {
-
+export default function AppWeb( ) {
   return (
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/sobre" component={About} />
-      <Route path="/entrar" component={Entrar} />
-      <Route path="/me" component={Paineis} />
-    </Switch>
+    <>
+      <Router>
+        <Routes/>
+      </Router>
+    </>
   );
 }

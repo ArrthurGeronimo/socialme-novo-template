@@ -1,10 +1,10 @@
 import React from 'react';
 
-export default function Donate() {
+export default function paginaNaoEncontrada() {
   return (
     <>
       <div className="content-generic">
-        <h1>Doações</h1>
+        <h1>404 Not Found</h1>
       </div>
     </>
   );

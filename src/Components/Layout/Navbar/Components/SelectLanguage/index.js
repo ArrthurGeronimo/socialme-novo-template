@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import FlagPortugal from './../../../../../Assets/Flags/pt.svg';
 import FlagBrazil from './../../../../../Assets/Flags/br.svg';

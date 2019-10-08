@@ -34,7 +34,7 @@
     width: 90px;
     margin: 0px;
     text-align: justify;
-    color: var(--darkText);
+    color: var(--dark);
     cursor: pointer;
 }
 .select .box-select .box-select-li:hover {
