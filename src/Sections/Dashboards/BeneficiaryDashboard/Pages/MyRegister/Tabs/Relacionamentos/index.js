@@ -8,7 +8,7 @@ import Alert from './../../../../../../../Components/Alert';
 
 export default function DashboardBeneficiaryMeuCadastroRelacionamento() {
   const [values, setValues] = useState({
-    userId: '5d8d2bef6c84083f3c07919b',
+    userId: '5d9ca0e96ca01a3818444728',
     todosOsRelacionamentos: [],
     idDaRowEmEdicao: '',
     tipoDoRelacionamentoDaEdicao: '',
@@ -59,12 +59,12 @@ useEffect(() => {
 }, [values.auxPegarDados]);
 //CHAMA A PRIMEIRA VEZ
 useEffect(() => {
-  console.log('useEffect -> Pegar Dados da API');
+  //console.log('useEffect -> Pegar Dados da API');
   pegandoDadosDaAPI();
 }, []);
 //PEGA OS DADOS DA API
   const pegandoDadosDaAPI = () => {
-    console.log('LISTANDO');
+    //console.log('LISTANDO');
     api.get(`relacionamentos/${values.userId}`)
     .then(res => {
       console.log(res.data);

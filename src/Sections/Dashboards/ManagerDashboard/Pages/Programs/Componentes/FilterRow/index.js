@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import './style.css';
 import AbaVisualizarProgramas from './../VisualizarProgramas';
 import AbaAdicionarProgramas from './../AdicionarPrograma';
@@ -38,9 +39,11 @@ export default function LinhaDeFiltrosDeProgamas() {
         </div>
         
         <div className="linhaDeFiltrosDosProgramas-itensNaDireita">
-          <button onClick={() => trocarDeAba('Adicionar Programa')} className="btn btn-3d btn-3d-primary">
-            <i className="fas fa-plus"></i>
-          </button>
+          <Link to={"/me/painel-da-gestora/adicionar-programa"}>
+            <button className="btn btn-3d btn-3d-primary">
+              <i className="fas fa-plus"></i>
+            </button>
+          </Link>
           <button onClick={() => trocarDeAba('Visualizar Programas')} className="btn btn-3d btn-3d-primary">
             <i className="far fa-eye"></i>
           </button>
@@ -68,7 +71,6 @@ export default function LinhaDeFiltrosDeProgamas() {
           </button>
         </div>
       </div>
-      {renderizarAbaAtiva()}
     </>
   );
 }

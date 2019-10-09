@@ -4,7 +4,6 @@ import SidebarDaBeneficiaria from './SidebarDaBeneficiaria';
 import SidebarDaGestora from './SidebarDaGestora';
 
 export default function PainelSidebar(props) {
-  console.log(props)
   const renderSidebarAtual = () =>{
     switch(props.urlPai) {
       case '/me/painel-da-beneficiaria':

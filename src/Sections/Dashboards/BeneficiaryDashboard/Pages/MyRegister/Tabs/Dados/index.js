@@ -21,7 +21,8 @@ const beneficiaryMeuCadastroDados = [
 
 export default function DashboardBeneficiaryMeuCadastroDados() {
   const [values, setValues] = useState({
-    userId: '5d8d2bef6c84083f3c07919b',
+    userId: '5d9ca0e96ca01a3818444728',
+    componenteMontado: false,
     quantidadeDeItensNasTabs : beneficiaryMeuCadastroDados.length,
     tamanhoSlider: 0,
     translateSlider: 0,
@@ -101,13 +102,11 @@ const handleChange = name => event => {
           telefoneCelular: '',
           email: dados.email,
           //Nascimento
-          /*
           dataNascimento: nascimento.data,
           nacionalidade: nascimento.nacionalidade,
           paisNascimento: nascimento.paisNascimento,
           estadoNascimento: nascimento.estadoNascimento,
           cidadeNascimento: nascimento.cidadeNascimento,
-          */
           //Endereço
           logradouro: endereco.logradouro,
           numero: endereco.numero,
@@ -127,6 +126,15 @@ const handleChange = name => event => {
         console.log(error);
     })
   }, []);
+
+  useEffect(
+    // Effect from first render
+    () => {
+      return () => {
+        console.log('teste2')
+      };
+    }
+  );
 //ARRUMA TAMANHO DO SLIDER
   useEffect(() => {
     let valor = 100/values.quantidadeDeItensNasTabs;
@@ -390,6 +398,19 @@ const handleChange = name => event => {
               />
             </div>
           </div>
+          {/* Nascimento */}
+          <div className="col-sm-12 col-md-3 col-lg-3">
+            <div className="form-group">
+              <label className="form-label">Nascimento</label>
+              <input 
+                type="text" 
+                className="form-control input-text" 
+                placeholder=""
+                value={values.dataDeNascimento}
+                onChange={handleChange('dataDeNascimento')}
+              />
+            </div>
+          </div>
         </div>
       </>
     )
@@ -546,12 +567,8 @@ const handleChange = name => event => {
   }
 //ATUALIZA OS DADOS
   const atualizarOsDados = () => {
-    const obj = {
-      dados:{
-        //OBJETO AQUI
-      }
+    console.log('Atualiza')
     }; 
-  }
 
 //RETURN
   return (

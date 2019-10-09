@@ -1,0 +1,42 @@
+.managerDashboardProgramsCard-containerGeral{
+    background-color: darkorange;
+    padding: 0px;
+    margin-bottom: 20px;
+}
+.managerDashboardProgramsCard-containerGeral-card{
+    background-color: green;
+    width: 100%;
+    margin: 0px auto;
+}
+.managerDashboardProgramsCard-containerGeral-cardBody{
+    background-color: aqua;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+.managerDashboardProgramsCard-containerGeral-cardBodyImageContainer{
+    background-color: darkmagenta;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+.managerDashboardProgramsCard-containerGeral-cardBodyImage{
+    background-color: blueviolet;
+    width: 80px;
+    height: 80px;
+    margin: 0px auto;
+}
+.managerDashboardProgramsCard-containerGeral-cardBodyInformation{
+    background-color: hotpink;
+}
+.managerDashboardProgramsCard-containerGeral-cardFooter{
+    width: 100%;
+    height: 40px;
+    background-color: gold;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding-left: 10px;
+}

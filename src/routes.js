@@ -10,6 +10,7 @@ import Dashboards from './Sections/Dashboards';
 //Painel da Gestora
 import ManagerDashboard from './Sections/Dashboards/ManagerDashboard';
 import ManagerDashboardMoves from './Sections/Dashboards/ManagerDashboard/Pages/Moves';
+import ManagerDashboardProgramsAdd from './Sections/Dashboards/ManagerDashboard/Pages/ProgramsAdd';
 import ManagerDashboardPrograms from './Sections/Dashboards/ManagerDashboard/Pages/Programs';
 import ManagerDashboardProgram from './Sections/Dashboards/ManagerDashboard/Pages/Program';
 import ManagerDashboardBenefitManager from './Sections/Dashboards/ManagerDashboard/Pages/BenefitManager';
@@ -59,6 +60,10 @@ const routes = [
           {
             path: "/me/painel-da-gestora/programas",
             component: ManagerDashboardPrograms,
+          },
+          {
+            path: "/me/painel-da-gestora/adicionar-programa",
+            component: ManagerDashboardProgramsAdd,
           },
           {
             path: "/me/painel-da-gestora/programa/:idDoPrograma",

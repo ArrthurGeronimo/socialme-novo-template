@@ -34,9 +34,7 @@ export default function ManagerDashboard({routes, match}) {
             avisaPaiSeBotaoSidebarFoiApertado={navbarFilhoAvisaSeBotaoSidebarFoiApertado.bind(this)} 
             sidebarOpen={values.sidebarOpen}
           />
-          <div className="containerOnlyContent">
-            <Redirect to={"/me/painel-da-gestora/movimentacoes"} />
-            {
+          <div className="containerOnlyContent">            {
               routes.map((route, index) => <MakeRouteWithSubRoutes key={index} {...route} />)
             }
           </div>

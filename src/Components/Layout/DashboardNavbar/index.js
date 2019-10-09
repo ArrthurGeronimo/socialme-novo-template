@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import BuscaIconeAnimado from './../../BuscaIconeAnimado';
 import Michael from './../../../Assets/Images/michael.jpg';
 import Dunder from './../../../Assets/Images/dunder.jpg';
+import BellNotification from './../../BellNotification';
 import './style.css';
 
 export default function NavbarDashboard(props) {
@@ -51,10 +52,10 @@ export default function NavbarDashboard(props) {
                   <i className="far fa-building"></i>
                 </Link>
                 <i className="far fa-envelope"></i>
-                <i className="far fa-bell"></i>
-                
                 
                 {renderUserInformation()}
+                
+                <BellNotification />
                 
               </div>
           </nav>
