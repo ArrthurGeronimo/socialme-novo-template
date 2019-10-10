@@ -38,8 +38,8 @@
     --danger: #dc3545;
     --light: #f8f9fa;
     --dark: #343a40;
-    --textDark: #60666d;;
-    --textGray: hs1(0, 0%, 29%);
+    --textDark: #303030;;
+    --textGray: #60666d;
     --lightGreyText: hs1(0, 0%, 45%);
     --backgroundColor: #f1f3f4;
     --borderColor: #dadce0;

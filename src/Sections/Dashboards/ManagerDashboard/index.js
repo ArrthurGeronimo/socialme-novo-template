@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Redirect } from "react-router-dom";
 import DashboardNavbar from './../../../Components/Layout/DashboardNavbar';
 import DashboardSidebar from './../../../Components/Layout/DashboardSidebar';
 import { MakeRouteWithSubRoutes } from '../../../makeRouteWithSubRoutes';
@@ -34,7 +33,8 @@ export default function ManagerDashboard({routes, match}) {
             avisaPaiSeBotaoSidebarFoiApertado={navbarFilhoAvisaSeBotaoSidebarFoiApertado.bind(this)} 
             sidebarOpen={values.sidebarOpen}
           />
-          <div className="containerOnlyContent">            {
+          <div className="containerOnlyContent">            
+            {
               routes.map((route, index) => <MakeRouteWithSubRoutes key={index} {...route} />)
             }
           </div>

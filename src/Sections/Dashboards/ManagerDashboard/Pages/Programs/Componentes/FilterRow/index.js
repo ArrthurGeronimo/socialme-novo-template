@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import './style.css';
-import AbaVisualizarProgramas from './../VisualizarProgramas';
-import AbaAdicionarProgramas from './../AdicionarPrograma';
 
 export default function LinhaDeFiltrosDeProgamas() {
   const [values, setValues] = useState({
@@ -17,20 +15,6 @@ export default function LinhaDeFiltrosDeProgamas() {
   const handleChange = name => event => {
     setValues({ ...values, [name]: event.target.value });
   };
-//TROCAR DE ABA
-  const trocarDeAba = (abaClicada) => {
-    setValues({ ...values, abaAtiva: abaClicada });
-  }
-//RENDERIZAR ABA
-  const renderizarAbaAtiva = () => {
-    switch (values.abaAtiva) {
-      case 'Visualizar Programas':
-      default:
-        return <AbaVisualizarProgramas/>;
-      case 'Adicionar Programa':
-        return <AbaAdicionarProgramas />;
-    }
-  }
   return (
     <>
       <div className="linhaDeFiltrosDosProgramas-containerGeral">
@@ -39,15 +23,15 @@ export default function LinhaDeFiltrosDeProgamas() {
         </div>
         
         <div className="linhaDeFiltrosDosProgramas-itensNaDireita">
-          <Link to={"/me/painel-da-gestora/adicionar-programa"}>
+          <Link to={"/me/painel-da-gestora/programas/adicionar"}>
             <button className="btn btn-3d btn-3d-primary">
               <i className="fas fa-plus"></i>
             </button>
           </Link>
-          <button onClick={() => trocarDeAba('Visualizar Programas')} className="btn btn-3d btn-3d-primary">
+          <button className="btn btn-3d btn-3d-primary">
             <i className="far fa-eye"></i>
           </button>
-          <button onClick={() => trocarDeAba('Visualizar Programas')}  className="btn btn-3d btn-3d-primary">
+          <button className="btn btn-3d btn-3d-primary">
             <i className="fas fa-sync-alt"></i>
           </button>
           <select 

@@ -20,7 +20,7 @@ export default function ManagerDashboardProgramsCard(props) {
                     </div>
                 </div>
                 <div className="managerDashboardProgramsCard-containerGeral-cardFooter">
-                <Link to={`/me/painel-da-gestora/programa/${props.programa._id}`}>
+                <Link to={`/me/painel-da-gestora/programas/ver/${props.programa._id}`}>
                     <button>Visualizar</button>
                 </Link>
                     <button>Editar Informações</button>

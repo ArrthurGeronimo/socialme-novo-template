@@ -10,9 +10,10 @@ import Dashboards from './Sections/Dashboards';
 //Painel da Gestora
 import ManagerDashboard from './Sections/Dashboards/ManagerDashboard';
 import ManagerDashboardMoves from './Sections/Dashboards/ManagerDashboard/Pages/Moves';
-import ManagerDashboardProgramsAdd from './Sections/Dashboards/ManagerDashboard/Pages/ProgramsAdd';
 import ManagerDashboardPrograms from './Sections/Dashboards/ManagerDashboard/Pages/Programs';
-import ManagerDashboardProgram from './Sections/Dashboards/ManagerDashboard/Pages/Program';
+  import ManagerDashboardProgramsAdd from './Sections/Dashboards/ManagerDashboard/Pages/ProgramsAdd';
+  import ManagerDashboardProgram from './Sections/Dashboards/ManagerDashboard/Pages/Program';
+  import ManagerDashboardProgramLinkBeneficiary from './Sections/Dashboards/ManagerDashboard/Pages/Program/Tabs/LinkBeneficiary';
 import ManagerDashboardBenefitManager from './Sections/Dashboards/ManagerDashboard/Pages/BenefitManager';
 import ManagerDashboardFQA from './Sections/Dashboards/ManagerDashboard/Pages/FQA';
 //Painel da Beneficiária
@@ -60,14 +61,22 @@ const routes = [
           {
             path: "/me/painel-da-gestora/programas",
             component: ManagerDashboardPrograms,
-          },
-          {
-            path: "/me/painel-da-gestora/adicionar-programa",
-            component: ManagerDashboardProgramsAdd,
-          },
-          {
-            path: "/me/painel-da-gestora/programa/:idDoPrograma",
-            component: ManagerDashboardProgram,
+            routes: [
+              {
+                path: "/me/painel-da-gestora/programas/adicionar",
+                component: ManagerDashboardProgramsAdd
+              },
+              {
+                path: "/me/painel-da-gestora/programas/ver/:idDoPrograma",
+                component: ManagerDashboardProgram,
+                routes: [
+                  {
+                    path: "/me/painel-da-gestora/programas/ver/:idDoPrograma/vincular-beneficiario",
+                    component: ManagerDashboardProgramLinkBeneficiary
+                  }
+                ]
+              }
+            ]
           },
           {
             path: "/me/painel-da-gestora/gestor-de-beneficios",

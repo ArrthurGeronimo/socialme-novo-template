@@ -1,0 +1,20 @@
+.managerDashboardProgram-information-actionsContainer{
+    background-color: fuchsia;
+    margin: 0px 5px;
+}
+.managerDashboardProgram-information-actionsContainer:hover .managerDashboardProgram-information-actionBox{
+    transform: translateY(-3px);
+}
+.managerDashboardProgram-information-actionBox{
+    background-color: darkred;
+    cursor: pointer;
+    width: auto;
+    padding: 5px;
+    border-radius: 4px;
+    background-color: var(--white);
+    box-shadow:  0 0 0 0px var(--secondaryDark) inset, 0 0 0 0px rgba(255, 255, 255, 0.15) inset, 0 5px 0 0 var(--secondaryDark), 0 4px 0 0px rgba(0, 0, 0, 0.4), 0 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+.managerDashboardProgram-information-actionBox p{
+    font-size: 12pt;
+    text-align: center;
+}

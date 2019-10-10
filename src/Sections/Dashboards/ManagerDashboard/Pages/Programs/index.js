@@ -3,8 +3,16 @@ import './style.css';
 import FilterRow from './Componentes/FilterRow';
 import ContainerCards from './Componentes/ContainerCards';
 import api from './../../../../../Services/api';
+import { MakeRouteWithSubRoutes } from '../../../../../makeRouteWithSubRoutes';
 
-export default function PainelGestoraProgramas() {
+/*
+console.log('ULR -> '+ window.location.href);
+console.log('Domain -> '+ window.location.hostname);
+console.log('path -> '+ window.location.pathname);
+console.log('protocol -> '+ window.location.protocol);
+*/
+
+export default function PainelGestoraProgramas({routes, match}) {
   const [values, setValues] = useState({
     gestoraId: '5d93a0417e87f339288f189b',
     programas: [],
@@ -37,8 +45,14 @@ export default function PainelGestoraProgramas() {
 
   return (
     <>
-      <FilterRow />
-      <ContainerCards todosOsProgramas={values.programas} />
+    {window.location.pathname === '/me/painel-da-gestora/programas' ?
+      <>
+        <FilterRow />
+        <ContainerCards todosOsProgramas={values.programas} />
+      </>
+    :
+      routes.map((route, index) => <MakeRouteWithSubRoutes key={index} {...route} />)
+    }
     </>
   );
 }
