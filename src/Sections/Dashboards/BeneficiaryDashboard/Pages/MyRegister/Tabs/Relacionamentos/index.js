@@ -83,11 +83,11 @@ useEffect(() => {
     setValues({ ...values, auxPegarDados: false });
     console.log('ADICIONANDO');
     const obj = {
-      _id: values.userId,
+      _idSolicitante: values.userId,
       _idPessoa: values.idDaPessoaDoNovoRelacionamento,
       vinculo: values.tipoDoNovoRelacionamento
     };
-    api.post(`novoRelacionamento`,obj)
+    api.post(`relacionamento`,obj)
     .then(res => {
       console.log('Enviando Obj');
       console.log(res.data);
@@ -339,7 +339,7 @@ const renderRowsDosRelacionamentos= (item) => {
             <img src={ImageUser} alt="Imagem padrão de usuário" />
           </div>
           <div className="dashboardBeneficiaryMeuCadastroRelacionamento-li-containerInfo">
-            <p>{item.nome}</p>
+            <p>{item.nome} <span>(pendente)</span></p>
             <span>{item.vinculo}</span>
           </div>
           <div className="dashboardBeneficiaryMeuCadastroRelacionamento-buttonsActions">

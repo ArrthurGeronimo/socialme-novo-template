@@ -35,7 +35,6 @@ export default function BeneficiaryDashboard({routes, match}) {
             sidebarOpen={values.sidebarOpen}
           />
           <div className="containerOnlyContent">
-            <Redirect to={"/me/painel-da-beneficiaria/minha-conta"} />
             {
               routes.map((route, index) => <MakeRouteWithSubRoutes key={index} {...route} />)
             }

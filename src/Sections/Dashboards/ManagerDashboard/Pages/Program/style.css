@@ -1,8 +1,8 @@
 .managerDashboardProgram-generalContainer{
-    background-color: purple;
+    background-color: var(--white);
+    padding: 20px;
 }
 .managerDashboardProgram-actionsGeneralContainer{
-    background-color: darkgreen;
     display: flex;
     height: 100px;
     align-items: center;

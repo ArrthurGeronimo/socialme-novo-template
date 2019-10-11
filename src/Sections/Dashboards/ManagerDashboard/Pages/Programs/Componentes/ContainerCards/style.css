@@ -1,4 +1,4 @@
 .managerDashboardProgramsContainerCards-containerGeral{
-    background-color: red;
+    background-color: var(--white);
     padding: 5px;
 }

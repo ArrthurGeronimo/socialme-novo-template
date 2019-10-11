@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import './style.css';
 
 export default function ManagerDashboardProgramsCard(props) {
+    console.log(props.programa)
   return (
     <>
         <div className="managerDashboardProgramsCard-containerGeral">
@@ -10,7 +11,7 @@ export default function ManagerDashboardProgramsCard(props) {
                 <div className="managerDashboardProgramsCard-containerGeral-cardBorder"></div>
                 <div className="managerDashboardProgramsCard-containerGeral-cardBody">
                     <div className="managerDashboardProgramsCard-containerGeral-cardBodyImageContainer">
-                        <div className="managerDashboardProgramsCard-containerGeral-cardBodyImage"></div>
+                    <div style={{backgroundImage: `url('${props.programa.imagem.url}')`}} className="managerDashboardProgramsCard-containerGeral-cardBodyImage"></div>
                     </div>
                     <div className="managerDashboardProgramsCard-containerGeral-cardBodyInformation">
                         <h3>{props.programa.nome}</h3>
@@ -21,10 +22,14 @@ export default function ManagerDashboardProgramsCard(props) {
                 </div>
                 <div className="managerDashboardProgramsCard-containerGeral-cardFooter">
                 <Link to={`/me/painel-da-gestora/programas/ver/${props.programa._id}`}>
-                    <button>Visualizar</button>
+                    <button className="btn btn-3d btn-3d-primary">Visualizar</button>
                 </Link>
-                    <button>Editar Informações</button>
-                    <button>Editar Regras</button>
+                <Link to={`/me/painel-da-gestora/programas/ver/${props.programa._id}`}>
+                    <button className="btn btn-3d btn-3d-primary">Editar Informações</button>
+                </Link>
+                <Link to={`/me/painel-da-gestora/programas/ver/${props.programa._id}`}>
+                    <button className="btn btn-3d btn-3d-primary">Editar Regras</button>
+                </Link>
                 </div>
             </div>
         </div>

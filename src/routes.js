@@ -19,6 +19,11 @@ import ManagerDashboardFQA from './Sections/Dashboards/ManagerDashboard/Pages/FQ
 //Painel da Beneficiária
 import BeneficiaryDashboard from './Sections/Dashboards/BeneficiaryDashboard';
 import BeneficiaryDashboardMyAccount from './Sections/Dashboards/BeneficiaryDashboard/Pages/MyAccount';
+  import BeneficiaryDashboardMyAccountFinancial from './Sections/Dashboards/BeneficiaryDashboard/Pages/MyAccount/Tabs/Financial';
+  import BeneficiaryDashboardMyAccountMyActivities from './Sections/Dashboards/BeneficiaryDashboard/Pages/MyAccount/Tabs/MyActivities';
+  import BeneficiaryDashboardMyAccountMyPrograms from './Sections/Dashboards/BeneficiaryDashboard/Pages/MyAccount/Tabs/MyPrograms';
+  import BeneficiaryDashboardMyAccountOpportunities from './Sections/Dashboards/BeneficiaryDashboard/Pages/MyAccount/Tabs/Opportunities';
+  import BeneficiaryDashboardMyAccountTimeline from './Sections/Dashboards/BeneficiaryDashboard/Pages/MyAccount/Tabs/Timeline';
 import BeneficiaryDashboardMyRegister from './Sections/Dashboards/BeneficiaryDashboard/Pages/MyRegister';
 import BeneficiaryDashboardFQA from './Sections/Dashboards/BeneficiaryDashboard/Pages/FQA';
 
@@ -94,7 +99,29 @@ const routes = [
         routes: [
           {
             path: "/me/painel-da-beneficiaria/minha-conta",
-            component: BeneficiaryDashboardMyAccount
+            component: BeneficiaryDashboardMyAccount,
+            routes: [
+              {
+                path: "/me/painel-da-beneficiaria/minha-conta/oportunidades",
+                component: BeneficiaryDashboardMyAccountOpportunities
+              },
+              {
+                path: "/me/painel-da-beneficiaria/minha-conta/meus-programas",
+                component: BeneficiaryDashboardMyAccountMyPrograms
+              },
+              {
+                path: "/me/painel-da-beneficiaria/minha-conta/minhas-atividades",
+                component: BeneficiaryDashboardMyAccountMyActivities
+              },
+              {
+                path: "/me/painel-da-beneficiaria/minha-conta/financeiro",
+                component: BeneficiaryDashboardMyAccountFinancial
+              },
+              {
+                path: "/me/painel-da-beneficiaria/minha-conta/linha-do-tempo",
+                component: BeneficiaryDashboardMyAccountTimeline
+              }
+            ]
           },
           {
             path: "/me/painel-da-beneficiaria/meu-cadastro",

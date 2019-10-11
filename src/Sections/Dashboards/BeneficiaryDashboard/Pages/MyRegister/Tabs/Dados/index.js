@@ -573,7 +573,7 @@ const handleChange = name => event => {
 //RETURN
   return (
     <>
-        <div className="dashboardBeneficiaryMeuCadastro">
+        <div className="dashboardBeneficiaryMeuCadastroo">
         <div className="col-sm-12 col-md-12 col-lg-12">
           {values.dadosDaPessoa.porcentagemCadastro > 0 ?
             <CircularProgress progresso={values.dadosDaPessoa.porcentagemCadastro} />
@@ -599,9 +599,9 @@ const handleChange = name => event => {
               </ul>
           </div>
           {renderContentTab()}
-          <div className="row">
-            <button onClick={() => atualizarOsDados()} className="btn btn-primary">Salvar Alterações</button>
-          </div>
+
+          <button onClick={() => atualizarOsDados()} className="btn btn-primary">Salvar Alterações</button>
+
         </div>
     </>
   );

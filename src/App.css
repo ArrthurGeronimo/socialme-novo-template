@@ -33,6 +33,7 @@
     --secondary: #F1F3F4;
     --secondaryDark: #D6DCDF;
     --success: #28a745;
+    --successDark: #229237;
     --info: #17a2b8;
     --warning: #ffc107;
     --danger: #dc3545;
@@ -294,12 +295,30 @@ a:hover{
 .btn-3d:active {
     transform: translate3d(0, 4px, 0);
 }
+/* PRIMARY */
 .btn-3d.btn-3d-primary {
     background-color: var(--primary);
     box-shadow:  0 0 0 0px var(--primaryDark) inset, 0 0 0 0px rgba(255, 255, 255, 0.15) inset, 0 5px 0 0 var(--primaryDark), 0 4px 0 0px rgba(0, 0, 0, 0.4), 0 0px 0px 0px rgba(0, 0, 0, 0.5)
 }
 .btn-3d.btn-3d-primary:active {
     box-shadow: 0 0 0 1px var(--primaryDark) inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset, 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+/* DARK */
+.btn-3d.btn-3d-success {
+    background-color: var(--success);
+    box-shadow:  0 0 0 0px var(--successDark) inset, 0 0 0 0px rgba(255, 255, 255, 0.15) inset, 0 5px 0 0 var(--successDark), 0 4px 0 0px rgba(0, 0, 0, 0.4), 0 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+.btn-3d.btn-3d-success:active {
+    box-shadow:  0 0 0 0px var(--successDark) inset, 0 0 0 0px rgba(255, 255, 255, 0.15) inset, 0 5px 0 0 var(--successDark), 0 4px 0 0px rgba(0, 0, 0, 0.4), 0 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+/* DARK */
+.btn-3d.btn-3d-secondary {
+    color: var(--textDark);
+    background-color: var(--secondary);
+    box-shadow:  0 0 0 0px var(--secondaryDark) inset, 0 0 0 0px rgba(255, 255, 255, 0.15) inset, 0 5px 0 0 var(--secondaryDark), 0 4px 0 0px rgba(0, 0, 0, 0.4), 0 0px 0px 0px rgba(0, 0, 0, 0.5);
+}
+.btn-3d.btn-3d-secondary:active {
+    box-shadow:  0 0 0 0px var(--secondaryDark) inset, 0 0 0 0px rgba(255, 255, 255, 0.15) inset, 0 5px 0 0 var(--secondaryDark), 0 4px 0 0px rgba(0, 0, 0, 0.4), 0 0px 0px 0px rgba(0, 0, 0, 0.5);
 }
 /* POPOVER */
 @import url("./Assets/CSS/popover.css");

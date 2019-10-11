@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import './style.css';
 import ActionBox from './Components/ActionBox';
@@ -9,19 +9,57 @@ import { MakeRouteWithSubRoutes } from '../../../../../makeRouteWithSubRoutes';
 import api from './../../../../../Services/api';
 
 export default function ManagerDashboardProgram({routes, match}) {
-  return (
-    <>
+  const [values, setValues] = useState({
+    programa: [],
+    consultouAPI: false
+  });
+  //PEGA DADOS DA PESSOA DA API
+  useEffect(() => {
+    api.get(`/programa/${match.params.idDoPrograma}`)
+    .then(res => {
+      console.log(res.data)
+      setValues({ 
+        ...values, 
+        programa: res.data.programa,
+        consultouAPI: true
+      });
+    })
+    .catch(function (error) {
+        console.log(error);
+    })
+  }, []);
+
+  const PaginaLoad = () => {
+    return(
+      <p>CARREGANDO</p>
+    )
+  }
+
+  const carregarPagina = () => {
+    if(values.consultouAPI){
+      return(
+        PaginaCompleta()
+      )
+    }else{
+      return(
+        PaginaLoad()
+      )
+    }
+  }
+
+  const PaginaCompleta = () => {
+    return(
       <div className="managerDashboardProgram-generalContainer">
         <div className="row">
           <div className="col-md-12">
             <Link to={'/me/painel-da-gestora/programas'}>
-              <p>Breadcrumbs</p>
+             
             </Link>
           </div>
         </div>
         <div className="row">
           <div className="col-md-5">
-           <Informations />
+           <Informations programa={values.programa} />
           </div>
           <div className="col-md-7">
             <div className="managerDashboardProgram-actionsGeneralContainer">
@@ -61,6 +99,14 @@ export default function ManagerDashboardProgram({routes, match}) {
         }
 
       </div> 
+    )
+  }
+
+  return (
+    <>
+    
+      {carregarPagina()}
+      
     </>
   );
 }

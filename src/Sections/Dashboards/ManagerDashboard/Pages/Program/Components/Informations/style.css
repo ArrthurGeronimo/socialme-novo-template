@@ -1,9 +1,7 @@
 .managerDashboardProgram-informations-generalContainer{
-    background-color: saddlebrown;
     display: flex;
 }
 .managerDashboardProgram-informations-imageContainer{
-    background-color: teal;
     padding: 0px 10px;
 }
 .managerDashboardProgram-informations-image{
@@ -15,6 +13,5 @@
     background-color: yellow;
 }
 .managerDashboardProgram-informations-informations{
-    background-color: chocolate;
     display: grid;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import './style.css';
 import api from './../../../../../Services/api';
 import Alert from './../../../../../Components/Alert';

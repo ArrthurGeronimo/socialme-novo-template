@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import './style.css';
 import api from './../../../../../../../Services/api';
 import Alert from './../../../../../../../Components/Alert';
+import Moment from 'react-moment';
 
 //NOME: ARTHUR GERONIMO
 //CPF: 33333333333
@@ -143,9 +144,9 @@ const feedbackDaBusca = () => {
                     <img src={`/assets/icones/outros/user.svg`} alt="Foto da Pessoa" />
                     <p>{values.nomeDaPessoaEncontrada}</p>
                     <span>{values.cpfDaPessoaEncontrada}</span><br/>
-                    <span>{values.nascimentoDaPessoaEncontrada}</span> 
+                    <span><Moment format="DD/MM/YYYY" add={{ hours: 4 }}>{values.nascimentoDaPessoaEncontrada}</Moment></span> 
                     <div className="managerDashboardProgramsProgramLinkBeneficiary-cardFoundButtons">
-                        <button onClick={() => cancelandoBusca()} className="btn btn-3d btn-3d-primary">Cancelar</button>
+                        <button onClick={() => cancelandoBusca()} className="btn btn-3d btn-3d-secondary">Cancelar</button>
                         <button onClick={() => vincularBeneficiario()} className="btn btn-3d btn-3d-primary">Víncular ao Programa</button>
                     </div>
                 </div>

@@ -1,6 +1,8 @@
 .dashboardBeneficiaryMeuCadastroRelacionamento{
     width: 100%;
-    margin-top: 50px;
+    background-color: var(--white);
+    border-right: 1px solid var(--borderColor);
+    border-left: 1px solid var(--borderColor);
 }
 .dashboardBeneficiaryMeuCadastroRelacionamento-ul{
     list-style: none;
@@ -37,6 +39,10 @@
     font-size: 14pt;
     color: var(--primary);
 }
+.dashboardBeneficiaryMeuCadastroRelacionamento-li-containerInfo p span{
+  font-size: 10pt;
+  color: var(--textGray);
+}
 .dashboardBeneficiaryMeuCadastroRelacionamento-li-containerInfo span{
     font-size: 10pt;
 }
@@ -60,10 +66,12 @@
     opacity: 1;
 }
 .dashboardBeneficiaryMeuCadastroRelacionamento-li-addRelacionamento{
-    background-color: var(--backgroundColor);
+    background-color: var(--white);
     display: flex;
     align-items: center;
     border-bottom: 1px solid var(--borderColor);
+    border-right: 1px solid var(--borderColor);
+    border-left: 1px solid var(--borderColor);
 }
 .dashboardBeneficiaryMeuCadastroRelacionamento-li-addRelacionamento .btn-AddRelacionamento{
   margin-right: 10px;
