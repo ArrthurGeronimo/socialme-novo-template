@@ -34,10 +34,11 @@ export default function SidebarDaGestora(props) {
             to={`${props.urlPai}/${item.slug}`} 
             key={item.titulo}
             activeStyle={{
-              backgroundColor: 'var(--white)',
+              backgroundColor: 'var(--primaryLight)',
               fontWeight: "bold",
-              color: "var(--primary)",
-              opacity: "1"
+              color: "var(--white)",
+              opacity: "1",
+              borderLeft: '3px solid var(--white)'
             }}
           >
             <i className={item.icone}></i>

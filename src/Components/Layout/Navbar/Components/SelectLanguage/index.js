@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './style.css';
 import FlagPortugal from './../../../../../Assets/Flags/pt.svg';
 import FlagBrazil from './../../../../../Assets/Flags/br.svg';
+import { LanguageContext } from './../../../../../Contexts/LanguageContext';
 
 export default function SelectLanguage(props) {
+    const { changeLanguage } = useContext(LanguageContext);
     const [values, setValues] = useState({
         open: false,
         flag: FlagBrazil,
@@ -13,11 +15,16 @@ export default function SelectLanguage(props) {
     const handleChange = name => event => {
         switch(name) {
         case 'POR':
-            return setValues({ ...values, flag: FlagBrazil, language: 'POR', open: false });
-        case 'PPO':
-            return setValues({ ...values, flag: FlagPortugal, language: 'PPO', open: false, });
         default:
-            return setValues({ ...values, [name]: event.target.value });
+            return (
+                changeLanguage('POR'),
+                setValues({ ...values, flag: FlagBrazil, language: 'POR', open: false, })
+            );
+        case 'PPO':
+            return (
+                changeLanguage('PPO'),
+                setValues({ ...values, flag: FlagPortugal, language: 'PPO', open: false, })
+            )
         }
     };
     const toggleSelect = () => {

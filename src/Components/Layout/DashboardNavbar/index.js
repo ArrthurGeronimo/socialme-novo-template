@@ -45,17 +45,34 @@ export default function NavbarDashboard(props) {
               </div>
               <div className="rightItens">
                 <BuscaIconeAnimado />
-                <Link to={"/me/painel-da-beneficiaria"}>
-                  <i className="far fa-smile"></i>
-                </Link>
-                <Link to={"/me/painel-da-gestora"}>
-                  <i className="far fa-building"></i>
-                </Link>
-                <i className="far fa-envelope"></i>
+                <ul className="navbarDashboardRightItens-ul">
+                  <li className="navbarDashboardRightItens-li">
+                    <Link to={"/me/painel-da-beneficiaria"}>
+                      <i className="far fa-smile"></i>
+                    </Link>
+                  </li>
+                  <li className="navbarDashboardRightItens-li">
+                    <Link to={"/me/painel-da-gestora"}>
+                      <i className="far fa-building"></i>
+                    </Link>
+                  </li>
+                  <li className="navbarDashboardRightItens-li">
+                    <i className="far fa-envelope"></i>
+                  </li>
+                  <li className="navbarDashboardRightItens-li">
+                    {renderUserInformation()}
+                  </li>
+                  <li className="navbarDashboardRightItens-li">
+                    <BellNotification />
+                  </li>
+                </ul>
                 
-                {renderUserInformation()}
                 
-                <BellNotification />
+                
+                
+               
+                
+                
                 
               </div>
           </nav>

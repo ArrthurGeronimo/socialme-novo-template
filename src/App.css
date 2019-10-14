@@ -30,6 +30,7 @@
     /* #d50000 #C00000 #9b0000 #b70202*/
     --primary: #9b0000;
     --primaryDark: #7D0000;
+    --primaryLight: #BC0000;
     --secondary: #F1F3F4;
     --secondaryDark: #D6DCDF;
     --success: #28a745;

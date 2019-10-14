@@ -1,20 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './style.css';
 import HeaderImage from './../../../../Assets/Images/header-image.png';
+import { LanguageContext } from './../../../../Contexts/LanguageContext';
 
 export default function HeaderHome() {
+  const { language, translate } = useContext(LanguageContext);
+  console.log(translate)
   return (
     <>
         <div className="headerHome">
           <div className="container">
             <div className="row">
               <div className="col-md-6 col-lg-6">
-                <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h1>
+                <h1>{translate.headerSite}</h1>
                 <div className="dividerHorizontal"></div>
-                <p>Nam pulvinar augue id tortor tincidunt, eget mattis eros porta. Curabitur vel elementum lacus. Nullam nulla lectus, porta nec facilisis non, cursus mollis dui. Vestibulum sodales blandit risus at rhoncus. Donec sagittis, massa sed interdum viverra, purus sem pellentesque ligula, a semper felis metus sed ex.</p>
+                <p>{translate.headerText}</p>
                 <div>
-                <button className="btn btn-outline">Lorem</button>
-                <button className="btn btn-outline">Ipsum</button>
+                <button className="btn btn-outline">{translate.headerButton1}</button>
+                <button className="btn btn-outline">{translate.headerButton2}</button>
                 </div>
               </div>
               <div className="col-md-6 col-lg-6">
