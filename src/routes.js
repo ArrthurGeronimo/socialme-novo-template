@@ -5,6 +5,7 @@ import { Switch, Link } from 'react-router-dom';
 //Páginas Gerais
 import { Home } from './Sections/Home';
 import Page404 from './Sections/404';
+import { Login } from './Sections/Login';
 //Páginas de Lógicas
 import Dashboards from './Sections/Dashboards';
 //Painel da Gestora
@@ -144,6 +145,10 @@ const routes = [
         component: TopicDetail
       },
     ]
+  },
+  {
+    path: "/entrar",
+    component: Login,
   },
   {
     path: "/:WhereTheHeckIsThat",
