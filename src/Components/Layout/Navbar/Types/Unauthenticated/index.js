@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import Logo from './../../../../../Assets/Images/logo.png';
-import SelectLanguage from './../../Components/SelectLanguage';
+import SelectLanguage from './../../../../SelectLanguage';
 
 export default function NavbarUnauthenticated() {
     return (

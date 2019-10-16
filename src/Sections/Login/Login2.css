@@ -1,11 +1,65 @@
 .Login-ContainerGeral{
-    background-color: var(--primary);
+    background-color: var(--backgroundColor);
     width: 100%;
     height: 100vh;
-    padding: 30px 0px;
 }
-.Login-Logo{
-    width: 100px;
+.Login-Navbar{
+    width: 100%;
+    height: 50px;
+    background-color: var(--primary);
+    padding-top: 5px;
+    display: flex;
+}
+.Login-Navbar-Logo{
+    height: 40px;
     display: block;
     margin: 0px auto;
+}
+.Login-Navbar-RightItens{
+    padding-top: 10px;
+    position: absolute;
+    right: 0;
+}
+.Login-Card-GeneralContainer{
+    background-color: var(--white);
+    border: 1px solid var(--borderColor);
+    padding: 30px;
+    width: 400px;
+    height: 300px;
+    margin: 30px auto 0px;
+    border-radius: 8px;
+    box-shadow:  0 0 0 0px var(--secondaryDark) inset, 0 0 0 0px rgba(255, 255, 255, 0.15) inset, 0 5px 0 0 var(--secondaryDark), 0 4px 0 0px rgba(0, 0, 0, 0.4), 0 0px 0px 0px rgba(0, 0, 0, 0.5)
+}
+.Login-Footer{
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    bottom: 0px;
+    padding-top: 5px;
+    border-top: 1px solid var(--borderColor);
+}
+.Login-Footer-ul{
+    width: max-content;
+    list-style: none;
+    display: flex;
+    margin: 0px auto;
+}
+.Login-Footer-li{
+    color: var(--textGray);
+    margin: 0px 5px;
+}
+.Login-Footer-li a{
+    color: var(--textGray);
+    text-decoration: none;
+    text-transform: none;
+}
+.Login-Notification-GeneralContainer{
+    background-color: var(--backgroundColor);
+    height: 90px;
+}
+.Login-Notification-ContainerBox{
+    width: 400px;
+    display: block;
+    margin: 0px auto;
+    padding: 20px 0px;
 }

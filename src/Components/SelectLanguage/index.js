@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import './style.css';
-import FlagPortugal from './../../../../../Assets/Flags/pt.svg';
-import FlagBrazil from './../../../../../Assets/Flags/br.svg';
-import { LanguageContext } from './../../../../../Contexts/LanguageContext';
+import FlagPortugal from './../../Assets/Flags/pt.svg';
+import FlagBrazil from './../../Assets/Flags/br.svg';
+import { LanguageContext } from './../../Contexts/LanguageContext';
 
 export default function SelectLanguage(props) {
     const { changeLanguage } = useContext(LanguageContext);
