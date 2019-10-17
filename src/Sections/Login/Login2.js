@@ -1,11 +1,55 @@
-import React from 'react';
+import React, { useState } from "react";
 import './Login2.css';
 import Logo from './../../Assets/Images/logo.png';
 import SelectLanguage from './../../Components/SelectLanguage';
-import { NotificationAnimation } from './../../Components/NotificationAnimation';
 import { Verification } from './Steps/Verification';
+import { LoginReal } from './Steps/LoginReal';
+import { RegisterPerson } from './Steps/RegisterPerson';
 
 const Login = () => {
+    const [values, setValues] = useState({
+        inProgress: false,
+        login: '',
+        stepVerification: true,
+        stepRegisterPerson: false
+    });
+// RENDER CARDS
+    const renderCards = () => {
+        if(values.stepVerification){
+            return(
+                <Verification changeLogin={changeLogin.bind(this)} verificationResponse={verificationResponse.bind(this)}  />
+            )
+        }else if(values.stepRegisterPerson){
+            return(
+                <RegisterPerson login={values.login} registerPersonBack={registerPersonBack.bind(this)}  />
+            )
+        }
+    }
+// CHANGE LOGIN
+const changeLogin = (login) => {
+    setValues({ ...values, login: login })
+}
+// VERIFICATION RESPONSE
+    const verificationResponse = (message, mainDocument) => {
+        // Não encontrou ninguém : ABF54A98CD1A6ED
+        // Encontrou alguém, mas sem senha: ABF54A98CDE1987
+        // Encontrou alguém, com senha: ABF54A98CDE14AA
+        console.log('RESPONSE -> '+message);
+        console.log('MAINDOCUMENT -> '+mainDocument);
+        switch(message.toUpperCase()){
+            default:
+            case 'ABF54A98CD1A6ED':
+                return(
+                    setValues({ ...values, stepVerification: false, stepRegisterPerson: true })
+                )
+        }
+    
+        
+    }
+// REGISTER PERSON BACK
+const registerPersonBack = () => {
+    setValues({ ...values, stepVerification: true, stepRegisterPerson: false })
+}
     return ( 
         <div className="Login-ContainerGeral">
             <div className="Login-Navbar">
@@ -14,20 +58,17 @@ const Login = () => {
                     <SelectLanguage />
                 </div>
             </div>
-            <div className="Login-Notification-GeneralContainer">
-                <div className="Login-Notification-ContainerBox">
-                    <NotificationAnimation 
-                        icon="em em-smiley"
-                        text="Coloque seu CPF ou CNPJ para se REGISTRAR ou ENTRAR no Social Me"
-                        color="info"
-                    />
-                </div>
-            </div>
             <div className="container">
-                <div className="Login-Card-GeneralContainer">
-                    <Verification />
+                <div
+                    className={"Login-Card-GeneralContainer "
+                    +(values.stepVerification ? ' Login-Card-VerificationContainer ' : '')
+                    +(values.stepRegisterPerson ? ' Login-Card-RegisterPersonContainer ' : '')
+                    }
+                >
+                    {renderCards()}
                 </div>
             </div>
+            {/* 
             <div className="Login-Footer">
                 <ul className="Login-Footer-ul">
                     <li className="Login-Footer-li">
@@ -41,6 +82,7 @@ const Login = () => {
                     </li>
                 </ul>
             </div>
+            */}
         </div>
     );
 }

@@ -7,10 +7,6 @@ import { Technology } from './Blocks/Technology';
 import { Product } from './Blocks/Product';
 import { Footer } from './Blocks/Footer';
 
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-AOS.init();
-
 export default function Home(props) {
   return (
     <>

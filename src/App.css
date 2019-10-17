@@ -72,6 +72,9 @@ a{
 a:hover{
     opacity: 1;
 }
+textarea{
+    min-height: 100px;
+}
 /* 1.4 - GENERAL CLASSES */
 .display-block{
     display: block;
@@ -120,6 +123,16 @@ a:hover{
     font-size: 87.5%;
     color: #cd201f;
     text-align: justify;
+}
+.valid-feedback {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 87.5%;
+    color: var(--success);
+    text-align: justify;
+}
+.select-disable{
+    cursor: not-allowed;
 }
 /* CONTENT GENERIC */
 .content-generic h1{
@@ -282,6 +295,10 @@ a:hover{
 }
 .btn-transparent-primary:hover{
     opacity: 1;
+}
+/* FLOAT */
+.btn-float-right{
+    float: right;
 }
 /* BOTAO 3D */
 .btn-3d {
