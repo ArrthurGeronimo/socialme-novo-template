@@ -11,7 +11,10 @@ const Login = () => {
         inProgress: false,
         login: '',
         stepVerification: true,
-        stepRegisterPerson: false
+        stepVerificationHavePassword: false,
+        stepVeriticationRegisterData: [],
+        stepRegisterPerson: false,
+        stepLogin: false
     });
 // RENDER CARDS
     const renderCards = () => {
@@ -21,7 +24,17 @@ const Login = () => {
             )
         }else if(values.stepRegisterPerson){
             return(
-                <RegisterPerson login={values.login} registerPersonBack={registerPersonBack.bind(this)}  />
+                <RegisterPerson 
+                havePassword={values.stepVerificationHavePassword}
+                person={values.stepVeriticationRegisterData}
+                login={values.login} 
+                stepBack={stepBack.bind(this)} 
+                registerPersonSuccess={registerPersonSuccess.bind(this)} 
+                />
+            )
+        }else if(values.stepLogin){
+            return(
+                <LoginReal login={values.login} />
             )
         }
     }
@@ -30,26 +43,40 @@ const changeLogin = (login) => {
     setValues({ ...values, login: login })
 }
 // VERIFICATION RESPONSE
-    const verificationResponse = (message, mainDocument) => {
+    const verificationResponse = (message, mainDocument, data) => {
         // Não encontrou ninguém : ABF54A98CD1A6ED
         // Encontrou alguém, mas sem senha: ABF54A98CDE1987
         // Encontrou alguém, com senha: ABF54A98CDE14AA
-        console.log('RESPONSE -> '+message);
-        console.log('MAINDOCUMENT -> '+mainDocument);
+        //console.log('RESPONSE -> '+message);
+        //console.log('MAINDOCUMENT -> '+mainDocument);
         switch(message.toUpperCase()){
-            default:
+            // Não encontrou
             case 'ABF54A98CD1A6ED':
+            default:
                 return(
-                    setValues({ ...values, stepVerification: false, stepRegisterPerson: true })
+                    setValues({ ...values, stepVerification: false, stepRegisterPerson: true, stepLogin: false })
+                )
+            case 'ABF54A98CDE1987':
+                return(
+                    setValues({ ...values, stepVerification: false, stepRegisterPerson: true, stepLogin: false, stepVeriticationRegisterData: data })
+                )
+            case 'ABF54A98CDE14AA':
+                return (
+                    setValues({ ...values, stepVerification: false, stepRegisterPerson: false, stepLogin: true })
                 )
         }
     
         
     }
-// REGISTER PERSON BACK
-const registerPersonBack = () => {
-    setValues({ ...values, stepVerification: true, stepRegisterPerson: false })
-}
+// REGISTER PERSON > BACK
+    const stepBack = () => {
+        setValues({ ...values, stepVerification: true, stepRegisterPerson: false, stepLogin: false })
+    }
+// REGISTER PERSON > SUCCESS{
+    const registerPersonSuccess = () => {
+        setValues({ ...values, stepVerification: false, stepRegisterPerson: false, stepLogin: true })
+    }
+
     return ( 
         <div className="Login-ContainerGeral">
             <div className="Login-Navbar">
@@ -63,6 +90,7 @@ const registerPersonBack = () => {
                     className={"Login-Card-GeneralContainer "
                     +(values.stepVerification ? ' Login-Card-VerificationContainer ' : '')
                     +(values.stepRegisterPerson ? ' Login-Card-RegisterPersonContainer ' : '')
+                    +(values.stepLoginReal ? ' Login-Card-LostepLoginRealContainer ' : '')
                     }
                 >
                     {renderCards()}

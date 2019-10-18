@@ -43,6 +43,7 @@
     transition: all 0.5s;
     animation-name: pageLoginFadeCard;
     animation-duration: 1s;
+    width: min-content;
 }
 @keyframes pageLoginFadeCard {
     from{
@@ -54,14 +55,8 @@
         transform: scale(1);
     }
 }
-.Login-Card-VerificationContainer{
-    width: 360px;
-}
-.Login-Card-LoginRealContainer{
-    width: 500px;
-}
 .Login-Card-RegisterPersonContainer{
-    
+    width: 100%;
 }
 .Login-Footer{
     width: 100%;

@@ -26,3 +26,6 @@
     color: var(--primary);
     cursor: pointer;
 }
+.Login-RegisterPerson-NotificationRow{
+    margin: 10px 0px 30px;
+}

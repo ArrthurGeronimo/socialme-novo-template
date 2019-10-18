@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './RegisterPerson.css';
-import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import api from './../../../../Services/api';
 import { dataBrasileiraMask } from './../../../../Services/masks';
+import { NotificationAnimation } from './../../../../Components/NotificationAnimation';
 import imagem2 from './../../../../Assets/Images/overlayDoador2.png';
 
 export default function FormBeneficiary(props) {
-    console.log(props)
   const [values, setValues] = useState({
     nome: '',
     nomeSocial: '',
@@ -79,6 +78,28 @@ useEffect(() => {
 //ÚNICA VEZ
   useEffect(() => {
     lerEstadoCidades()
+  }, []);
+//ÚNICA VEZ
+  useEffect(() => {
+    if(props.person.profile){
+      let person = props.person.profile;
+      console.log(person)
+      setValues({ 
+        ...values, 
+        nome: person.name,
+        nomeSocial: person.socialName,
+        sexo: person.sex,
+        estadoCivil: person.civilState,
+        escolaridade: person.schooling,
+        profissao: person.profession,
+        email: person.email,
+        //Nascimento
+        dataNascimento: person.birth.date,
+        paisNascimento: person.birth.country,
+        estadoNascimento: person.birth.state,
+        cidadeNascimento: person.birth.city,
+      });
+    }
   }, []);
 //LER ARQUIVO COM ESTADOS E CIDADES
   const lerEstadoCidades = () => {
@@ -172,66 +193,95 @@ useEffect(() => {
   const cadastrarSemDoador = () => {
     setValues({ ...values, doador: false });
   }
-  const cadastrarBeneficiario = () => {
+  const cadastrarBeneficiario = (e) => {
+    e.preventDefault();
     const obj = {
-      dados: {
-        nome: values.nome,
-        nomeSocial: values.nomeSocial,
-        sexo: values.sexo,
-        estadoCivil: values.estadoCivil,
-        rg: values.rg,
-        cpf: values.cpf,
-        cns: values.cns,
-        pis: values.pis,
-        escolaridade: values.escolaridade,
-        profissao: values.profissao,
-        telefoneFixo: values.telefoneFixo,
-        celular: values.celular,
+      profile: {
+        name: values.nome,
+        socialName: values.nomeSocial,
+        sex: values.sexo,
+        socialSex: values.sexo,
+        birth: {
+          date: values.dataNascimento,
+          nationality: [
+            {
+              country: values.nacionalidade
+            }
+          ],
+          country: values.paisNascimento,
+          stade: values.estadoNascimento,
+          city: values.cidadeNascimento
+        },
+        civilState: values.estadoCivil,
+        schooling: values.escolaridade,
+        profession: values.profissao,
+        phones: [
+          {
+            main: true,
+            number: values.celular,
+            description: "Telefone Celular"
+          },
+          {
+            main: false,
+            number: values.telefoneFixo,
+            description: "Telefone Fixo"
+          }
+        ],
         email: values.email,
+        mainDocument: {
+          name: "CPF",
+          number: props.login.replace(/[^\d]+/g,'')
+        },
+        documents:[
+          {
+            name: "RG",
+            number: values.rg
+          },
+          {
+            name: "CNS",
+            number: values.cns
+          },
+          {
+            name: "PIS",
+            number: values.pis
+          }
+        ],
+        /*
         pais: values.pais,
         cidade: values.cidade,
         estado: values.estado,
-        nascimento: {
-          data: values.dataNascimento,  
-          nacionalidade: values.nacionalidade,
-          pais: values.paisNascimento,
-          estado: values.estadoNascimento,
-          cidade: values.cidadeNascimento
+        */
+      },
+      position:{
+        beneficiary:{
+          status: values.beneficiaria
+        },
+        provider:{
+          status: values.fornecedora
+        },
+        giver:{
+          status: values.doadora
         }
       },
-      maisInformacoes: values.maisInformacoes,
-      beneficiaria: {
-        status: values.beneficiaria
-      },
-      doadora: {
-        status: values.doadora
-      },
-      fornecedora: {
-        status: values.fornecedora
+      notes: [
+        {
+          message: values.maisInformacoes
+        }
+      ],
+      auth:{
+        password: values.password
       }
     };
 
   console.log(obj);
-  api.post('/person', obj)
+  api.post('/person/register', obj)
   .then(res => {
-      //console.log(res);
-      if(res.data.status === 'success'){
-        setValues({ 
-          ...values, 
-          mostrarAlerta: true,
-          typeAlerta: 'success',
-          positionAlert: 'top-right',
-          textAlert: 'Pessoa Física Cadastrada com Sucesso',
-        });
-        setTimeout(
-          function() {
-            setValues({ 
-              ...values, 
-              redirect: true
-            });
-          },
-          3000
-        );
+      console.log(res);
+      // SUCCESS: CD3114A1FFFAC33
+      switch(res.data.header.code){
+        case 'CD3114A1FFFAC33':
+        default:
+          props.registerPersonSuccess()
       }
     })
     .catch(function (error) {
@@ -239,19 +289,9 @@ useEffect(() => {
     })
 }
 
-// Redirecionamento para a página de LOGIN
-  const renderRedirect = () => {
-    if (values.redirect) {
-      return <Redirect to={{
-        pathname: '/entrar'
-      }} />
-    }
-  }
-
   return (
     <>
         <div data-aos="fade-left" className="Login-RegisterPerson-GeneralContainer">
-            {renderRedirect()}
             <div className="row">
                 <div className="col-md-12">
                     <div className="form-group formGroupMainDocument">
@@ -263,10 +303,25 @@ useEffect(() => {
                             placeholder="Digite seu CPF"
                             value={props.login}
                         />
-                        <i onClick={() => props.registerPersonBack()} className="far fa-times-circle"></i>
+                        <i onClick={() => props.stepBack()} className="far fa-times-circle"></i>
                     </div>
                 </div>
             </div>
+            <div className="row Login-RegisterPerson-NotificationRow">
+              <div className="col-md-12">
+                {props.havePassword ?
+                  <></>
+                :
+                <NotificationAnimation
+                  color="primary"
+                  icon=""
+                  text="Preencha os campos abaixo para realizar o seu cadastro"
+                />
+              }
+                
+              </div>
+            </div>
+            <form onSubmit={cadastrarBeneficiario}>
                 <div className="row">
 
                 <div className="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -278,7 +333,8 @@ useEffect(() => {
                 <div className="col-sm-12 col-md-8 col-lg-8">
                     <div className="form-group">
                     <label className="form-label">Nome Completo</label>
-                    <input 
+                    <input
+                        required
                         type="text" 
                         className="form-control" 
                         placeholder="Digite seu nome completo"
@@ -329,7 +385,8 @@ useEffect(() => {
                 <div className="col-sm-12 col-md-8 col-lg-8">
                     <div className="form-group">
                     <label className="form-label">Nome Social</label>
-                    <input 
+                    <input
+                        required 
                         type="text" 
                         className="form-control" 
                         placeholder="Digite seu nome social"
@@ -373,7 +430,8 @@ useEffect(() => {
                 <div className="col-sm-12 col-md-3 col-lg-3">
                     <div className="form-group">
                     <label className="form-label">CNS</label>
-                    <input 
+                    <input
+                        required 
                         type="text" 
                         className="form-control" 
                         placeholder="Digite seu CNS"
@@ -386,7 +444,8 @@ useEffect(() => {
                 <div className="col-sm-12 col-md-3 col-lg-3">
                     <div className="form-group">
                     <label className="form-label">PIS</label>
-                    <input 
+                    <input
+                        required
                         type="text" 
                         className="form-control" 
                         placeholder="Digite seu PIS"
@@ -399,7 +458,8 @@ useEffect(() => {
                 <div className="col-sm-12 col-md-3 col-lg-3">
                     <div className="form-group">
                     <label className="form-label">Escolaridade</label>
-                    <select 
+                    <select
+                        required
                         className="form-control"
                         value={values.escolaridade}
                         onChange={handleChange('escolaridade')}
@@ -422,7 +482,8 @@ useEffect(() => {
                 <div className="col-sm-12 col-md-3 col-lg-3">
                     <div className="form-group">
                     <label className="form-label">Email</label>
-                    <input 
+                    <input
+                        required 
                         type="text" 
                         className="form-control" 
                         placeholder="Digite sua Email"
@@ -435,7 +496,8 @@ useEffect(() => {
                 <div className="col-sm-12 col-md-3 col-lg-3">
                     <div className="form-group">
                     <label className="form-label">Telefone Fixo</label>
-                    <input 
+                    <input
+                        required
                         type="text" 
                         className="form-control" 
                         placeholder="Digite o número do seu Telefone Fixo"
@@ -448,7 +510,8 @@ useEffect(() => {
                 <div className="col-sm-12 col-md-3 col-lg-3">
                     <div className="form-group">
                     <label className="form-label">Celular</label>
-                    <input 
+                    <input
+                        required
                         type="text" 
                         className="form-control" 
                         placeholder="Digite o número do seu Celular"
@@ -461,7 +524,8 @@ useEffect(() => {
                 <div className="col-sm-12 col-md-3 col-lg-3">
                     <div className="form-group">
                     <label className="form-label">Profissão</label>
-                    <input 
+                    <input
+                        required
                         type="text" 
                         className="form-control" 
                         placeholder="Digite sua Profissão"
@@ -474,7 +538,8 @@ useEffect(() => {
                 <div className="col-sm-12 col-md-3 col-lg-3">
                     <div className="form-group">
                     <label className="form-label">País</label>
-                    <select 
+                    <select
+                        required
                         className="form-control"
                         value={values.pais}
                         onChange={handleChange('pais')}
@@ -488,7 +553,8 @@ useEffect(() => {
                 <div className="col-sm-12 col-md-3 col-lg-3">
                     <div className="form-group">
                     <label className="form-label">Estado</label>
-                    <select 
+                    <select
+                        required
                         className={"form-control "+(values.paisSelecionado ? '' : 'select-disable')}
                         value={values.estado}
                         onChange={handleChange('estado')}
@@ -501,7 +567,8 @@ useEffect(() => {
                 <div className="col-sm-12 col-md-3 col-lg-3">
                     <div className="form-group">
                     <label className="form-label">Cidade</label>
-                    <select 
+                    <select
+                        required
                         className={"form-control "+(values.estadoSelecionado ? '' : 'select-disable')}
                         value={values.cidade}
                         onChange={handleChange('cidade')}
@@ -519,7 +586,8 @@ useEffect(() => {
                 <div className="col-sm-12 col-md-4 col-lg-4">
                     <div className="form-group">
                     <label className="form-label">País do Nascimento</label>
-                    <select 
+                    <select
+                        required
                         className="form-control"
                         value={values.paisNascimento}
                         onChange={handleChange('paisNascimento')}
@@ -533,7 +601,8 @@ useEffect(() => {
                 <div className="col-sm-12 col-md-4 col-lg-4">
                     <div className="form-group">
                     <label className="form-label">Estado do Nascimento</label>
-                    <select 
+                    <select
+                        required
                         className={"form-control "+(values.paisNascimentoSelecionado ? '' : 'select-disable')}
                         value={values.estadoNascimento}
                         onChange={handleChange('estadoNascimento')}
@@ -546,7 +615,8 @@ useEffect(() => {
                 <div className="col-sm-12 col-md-4 col-lg-4">
                     <div className="form-group">
                     <label className="form-label">Cidade do Nascimento</label>
-                    <select 
+                    <select
+                        required
                         className={"form-control "+(values.estadoNascimentoSelecionado ? '' : 'select-disable')}
                         value={values.cidadeNascimento}
                         onChange={handleChange('cidadeNascimento')}
@@ -559,7 +629,8 @@ useEffect(() => {
                 <div className="col-sm-12 col-md-4 col-lg-4">
                     <div className="form-group">
                     <label className="form-label">Nacionalidade</label>
-                    <input 
+                    <input
+                        required
                         type="text" 
                         className="form-control" 
                         placeholder="Digite sua Nacionalidade"
@@ -572,7 +643,8 @@ useEffect(() => {
                 <div className="col-sm-12 col-md-4 col-lg-4">
                     <div className="form-group">
                     <label className="form-label">Nascimento</label>
-                    <input 
+                    <input
+                        required
                         type="text" 
                         className="form-control" 
                         placeholder="Digite seu Nascimento"
@@ -582,9 +654,9 @@ useEffect(() => {
                     </div>
                 </div>
                 <div className="col-12 col-sm-12 col-md-12 col-lg-12">
-                <div className="Login-RegisterPerson-Title">
-                        <h1>Mais Informações</h1>
-                    </div>
+                  <div className="Login-RegisterPerson-Title">
+                    <h1>Mais Informações</h1>
+                  </div>
                 </div>
                 {/* MAIS INFORMAÇÕES */}
                 <div className="col-sm-12 col-md-12 col-lg-12">
@@ -602,8 +674,6 @@ useEffect(() => {
             
                 </div> {/* /row */}
             {/* CARD - DOADOR/FORNECEDOR */}
-            <div className="card">
-            <div className="card-body">
                 <div className="row">
                 {/* BENEFICIÁRIA */}
                 <div className="col-sm-12 col-md-4 col-lg-4">
@@ -690,15 +760,47 @@ useEffect(() => {
                     </div>
                 </div>
                 </div>
-            </div>
-            </div>
+              <div className="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div className="Login-RegisterPerson-Title">
+                  <h1>Autenticação</h1>
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-sm-12 col-md-3 col-lg-3">
+                  <div className="form-group">
+                    <label className="form-label">Senha</label>
+                    <input
+                        required
+                        type="password" 
+                        className="form-control" 
+                        placeholder="********"
+                        value={values.password}
+                        onChange={handleChange('password')}
+                    />
+                  </div>
+                </div>
+                <div className="col-sm-12 col-md-3 col-lg-3">
+                  <div className="form-group">
+                    <label className="form-label">Confirme a sua senha</label>
+                    <input 
+                        type="password" 
+                        className="form-control" 
+                        placeholder="********"
+                        value={values.confirmPassword}
+                        onChange={handleChange('confirmPassword')}
+                    />
+                  </div>
+                </div>
+              </div>
+
             {/* BOTÃO REGISTRO */}
             <div className="row">
                 <div className="col-sm-12 col-md-12 col-lg-12">
-                    <button className="btn btn-3d btn-3d-secondary" onClick={() => props.registerPersonBack()}>Voltar</button>
-                    <button className="btn btn-3d btn-3d-primary btn-float-right" onClick={cadastrarBeneficiario}>Registrar</button>
+                    <button className="btn btn-3d btn-3d-secondary" onClick={() => props.stepBack()}>Voltar</button>
+                    <button type="submit" className="btn btn-3d btn-3d-primary btn-float-right">Registrar</button>
                 </div>
             </div>
+            </form>
         </div>
     </>
   );

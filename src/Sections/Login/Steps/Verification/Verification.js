@@ -57,8 +57,27 @@ useEffect(() => {
         }
         api.post('/prelogin', obj)
         .then(res => {
-            console.log(res);
-            props.verificationResponse(res.data.header.code, mainDocument.value);
+            //console.log(res);
+            // Não encontrou ninguém : ABF54A98CD1A6ED
+            // Encontrou alguém, mas sem senha: ABF54A98CDE1987
+            // Encontrou alguém, com senha: ABF54A98CDE14AA
+            switch(res.data.header.code.toUpperCase()){
+                // Não encontrou
+                case 'ABF54A98CD1A6ED':
+                default:
+                    return(
+                        props.verificationResponse(res.data.header.code, mainDocument.value, 'nothing')
+                    )
+                case 'ABF54A98CDE1987':
+                    return(
+                        props.verificationResponse(res.data.header.code, mainDocument.value, res.data.data.person)
+                    )
+                case 'ABF54A98CDE14AA':
+                    return (
+                        props.verificationResponse(res.data.header.code, mainDocument.value, 'nothing')
+                    )
+            }
+            
         })
         .catch(function (error) {
         console.log(error);

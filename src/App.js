@@ -5,13 +5,13 @@ import './App.css';
 
 import ThemeContextProvider from './Contexts/ThemeContext';
 import LanguageContextProvider from './Contexts/LanguageContext';
+import AuthContextProvider from './Contexts/AuthContext';
 
 import Moment from 'react-moment';
 import moment from 'moment/min/moment-with-locales';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-
 import 'moment/locale/pt-br';
 
 Moment.globalMoment = moment;
@@ -25,11 +25,13 @@ export default function AppWeb( ) {
   return (
     <>
       <Router>
-        <ThemeContextProvider>
-          <LanguageContextProvider>
-            <Routes/>
-          </LanguageContextProvider>
-        </ThemeContextProvider>
+        <AuthContextProvider>
+          <ThemeContextProvider>
+            <LanguageContextProvider>
+              <Routes/>
+            </LanguageContextProvider>
+          </ThemeContextProvider>
+        </AuthContextProvider>
       </Router>
     </>
   );
